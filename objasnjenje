@@ -1,21 +1,17 @@
 Link https://github.com/GeneralShepard1 
+
+___________________________________________________________________________________________________________________________________________________________________
 Zadatak 2
-Na Kali VM (prva mašina koja se koristi za sve zadatke):
-2.1	Kreirati direktorij sa brojem indeksa.
-2.2	Podesiti privilegije tako da samo vi kao user imate pristup direktoriju
-2.3	Nakon kreiranja direktorija, izvršiti listing direktorija tako da se vide privilegije.
-2.1 Za kreiranje direktorija koristi se naredba mkdir NazivDirektorija 
 Linux privilegije se određuju za tri grupe korisnika: vlasnika, grupu i ostale korisnike. Svakoj od ovih grupa mogu se dodijeliti sljedeća prava:
-Naziv 	read	write	execute
-Vrijednost	4	2	1
-Skraćenica	r	w	x
+Naziv 	|Vrijednost|	Upotreba i skraćenica
+________|__________|__________________________________________________________________________________________________________________________________________________
+read	|     4    | r može vidjeti sadržaj direktorija	
+________|__________|__________________________________________________________________________________________________________________________________________________
+write	|     2    | w može kreirati/brisati fajlove unutr
+________|__________|__________________________________________________________________________________________________________________________________________________
+execute	|     1    | x može ući u direktorij
 
-Upotreba	može vidjeti sadržaj direktorija	
-može kreirati/brisati fajlove unutra
-	
-može ući u direktorij
-
-2.2 Nakon što je direktorij kreiran, radi se izlistavanje svih direktorija na kaliju preko komande ls -al kako bi se vidjele privilegije svakog direktorija posebno: 
+2.2 Nakon što je direktorij kreiran naredbom mkdir NazivDirektorija, radi se izlistavanje svih direktorija na kaliju preko komande ls -al kako bi se vidjele privilegije svakog direktorija posebno: 
 Nakon što je otkriveno ko ima I kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija, dakle samo vlasnik direktorija ima sve privilegije, dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju. Da bismo pokazali da smo uspjesno promijenili privilegije, ponovo listamo sve direktorije koje imamo na nasoj kali masini komandom ls -al 
  
 Na Kali Linux mašini kreirati datoteku sa nazivom „IspitnaDatoteka.txt“, a zatim postaviti privilegije tako da vlasnik datoteke (user) ima sva prava (read, write), dok ostali korisnici imaju samo read privilegije.
