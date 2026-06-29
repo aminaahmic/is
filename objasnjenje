@@ -1,7 +1,14 @@
 Link https://github.com/GeneralShepard1 
+AI ALATI
+https://www.perplexity.ai/
+https://chat.deepseek.com/
+https://grok.com/
+https://chat.akash.network/
+https://notegpt.io/ai-chat
+https://chat.qwen.ai/
 
-___________________________________________________________________________________________________________________________________________________________________
-Zadatak 2
+_______________________________________________________ZADATAK 2____________________________________________________________________________________________________________ 
+
 Linux privilegije se određuju za tri grupe korisnika: vlasnika, grupu i ostale korisnike. Svakoj od ovih grupa mogu se dodijeliti sljedeća prava:
 Naziv 	|Vrijednost|	Upotreba i skraćenica
 ________|__________|__________________________________________________________________________________________________________________________________________________
@@ -12,72 +19,42 @@ ________|__________|____________________________________________________________
 execute	|     1    | x može ući u direktorij
 
 2.2 Nakon što je direktorij kreiran naredbom mkdir NazivDirektorija, radi se izlistavanje svih direktorija na kaliju preko komande ls -al kako bi se vidjele privilegije svakog direktorija posebno: 
-Nakon što je otkriveno ko ima I kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija, dakle samo vlasnik direktorija ima sve privilegije, dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju. Da bismo pokazali da smo uspjesno promijenili privilegije, ponovo listamo sve direktorije koje imamo na nasoj kali masini komandom ls -al 
- 
-Na Kali Linux mašini kreirati datoteku sa nazivom „IspitnaDatoteka.txt“, a zatim postaviti privilegije tako da vlasnik datoteke (user) ima sva prava (read, write), dok ostali korisnici imaju samo read privilegije.
-
-Za kreiranje datoteka koristi se naredba touch NazivDatoteke. Nakon toga, potrebno je naredbom ls -al izlistati sve direktorije/datoteke s naše kali mašine. Zatim, ponovo naredbom chmod 644 NazivDatoteke postaviti privilegije, te nakon toga ponoviti naredbu ls -al. Za tekstualne datoteke se obicno nikada ne daje naredba x jer se one ne  izvrsavaju kao program. 
- 
-Ukoliko profesor doda u zadatku da se nesto upise u tu skriptu/ datoteku, iskoristit cemo opciju:  echo „Tekst koji treba ici u skriptu“ > NazivSkripte.txt
+Nakon što je otkriveno ko ima i kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija,
+dakle samo vlasnik direktorija ima sve privilegije, dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju.
+Da bismo pokazali da smo uspjesno promijenili privilegije, ponovo listamo sve direktorije koje imamo na nasoj kali masini komandom ls -al 
+_______________________________________________________TEKSTUALNI FAJL .TXT KREIRANJE____________________________________________________________________________________________________________
+Za kreiranje datoteka koristi se naredba touch NazivDatoteke. Nakon toga, potrebno je naredbom ls -al izlistati sve direktorije/datoteke s naše kali mašine. Zatim, ponovo naredbom chmod 644 NazivDatoteke 
+postaviti privilegije, te nakon toga ponoviti naredbu ls -al. Za tekstualne datoteke se obicno nikada ne daje naredba x jer se one ne  izvrsavaju kao program. 
+Ukoliko profesor doda u zadatku da se nesto upise u tu skriptu/ datoteku, iskoristit cemo opciju: ./NazivDatoteke, zatim komandom vi NazivDatoteke otvaramo skriptu, upisat cemo
+echo „Tekst koji treba ici u skriptu“ nakon sto smo upisali idemo do dna i tu ukucamo :wq i kliknemo enter. Pored tog postoji i ova opcija echo „Tekst koji treba ici u skriptu“ > NazivSkripte.txt
 Da bismo provjerili sta pise u skripti koristimo naredbu cat NazivSkripte.txt . Ako bismo zeljeli dodati jos teksta to bismo uradili komandom echo „Dodajem tekst koji treba ici  u skriptu“ >> NazivSkripte.txt
- 
+
+
+
+
+_______________________________________________________ZADATAK 3____________________________________________________________________________________________________________ 
 Zadatak 3
 U ovom zadatku najčešće se traži da se odredi nekoliko DNS informacija za neku domenu. Neka je domena www.unmo.ba treba odrediti sljedeće
-	DNS informacije za www.unmo.ba domenu
-Komanda	Rezultati
-1	IP adresa web servera	1.	dig www.unmo.ba
-2.	ping CNAME	1.	CNAME: web2022.unmo.ba
-2.	195.130.50.11
-2	Mail server domene	dig unmo.ba MX	edge2019.unmo.ba
-3	IP adresa mail servera	1.	dig unmo.ba MX
-2.	ping edge2019.unmo.ba	1.	edge2019.unmo.ba
-2.	IP adresa
-4	Nazivi DNS server domene	dig unmo.ba NS	NS nazivi
-5	IP adresa DNS servera	1.	dig unmo.ba NS
-2.	ping NS nazive	1.	NS nazivi
-2.	IP adrese
-6	Alias domene	dig www.unmo.ba	CNAME ili CNAMES
-7	TXT zapisi	dig unmo.ba TXT	TXT
-8	SOA zapisi	dig unmo.ba SOA	SOA
-9	Reverse DNS	dig -x IP adresa	Naziv DNS
-
-
-
-
-
-
-
-
-
-
+DNS informacije za www.unmo.ba domenu
 1. IP adresu web servera:
- komandom dig www.unmo.ba dobit cu cname, dalje koristeci dobijeni cname kucam ping nazivcname-a
-
- 
-Te adresa koju dobijem u zagradi je ip adresa web servera: 195.130.50.11
+ komandom dig www.unmo.ba dobit cu cname, dalje koristeci dobijeni cname kucam ping nazivcname-a. Adresa koju dobijem u zagradi je ip adresa web servera: 195.130.50.11
 2. Mail server domene: 
-Koristim komandu dig unmo.ba MX  i dobijem odgovor: edge2019.unmo.ba i to je odgovor mail server domene.
- 
+Koristim komandu dig unmo.ba MX  i dobijem odgovor: edge2019.unmo.ba i to je odgovor mail server domene. 
 3. Adresa mail servera
-Na prethodnu komadnu dig unmo.ba MX dodajem samo ping edge2019.unmo.ba  i dobijem odgovor: 195.130.50.20
- 
+Na prethodnu komadnu dig unmo.ba MX dodajem samo ping edge2019.unmo.ba  i dobijem odgovor: 195.130.50.20 
 4. DNS/name serveri domene
-Koristeci komandu dig unmo.ba NS dobit cu DNS nazive servera domene unmo.ba, u ovom slučaju su takva 3 DNS servera.
- 
+Koristeci komandu dig unmo.ba NS dobit cu DNS nazive servera domene unmo.ba, u ovom slučaju su takva 3 DNS servera. 
 5. IP adresa DNS servera
-Samo pingamo nazive DNS server i dobijemo
- 
+Samo pingamo nazive DNS server i dobijemo 
 ping web2022.unmo.ba  -> 195.130.50.11
 ping pdc2019.unmo.ba  -> 195.130.50.7
 ping dns2022.unmo.ba  -> 195.130.50.10
 6. Alias domene
-Koristeci komandu dig www.unmo.ba CNAME dobijamo alias domene, u ovom slučaju je jedna takva -> web2022.unmo.ba
- 
+Koristeci komandu dig www.unmo.ba CNAME dobijamo alias domene, u ovom slučaju je jedna takva -> web2022.unmo.ba 
 7. TXT zapisi 
 Komandom dig unmo,ba TXT dobit ćemo tekstualne DNS zapise: TXT zapisi domene unmo.ba su tekstualni DNS zapisi koji se koriste za verifikaciju domene i zaštitu e-mail sistema. U ovom primjeru postoje Google verifikacija, Microsoft verifikacija i SPF zapis za određivanje servera koji smiju slati mailove za domenu unmo.ba. 
 8. SOA zapis
 SOA zapis prikazuje osnovne administrativne informacije o DNS zoni domene. Za domenu unmo.ba glavni DNS server je pdc2019.unmo.ba, a administrativni kontakt je admin@unmo.ba. Također sadrži serijski broj zone i vremenske vrijednosti za osvježavanje i keširanje DNS podataka.
- 
 9. Reverse DNS
 Pretstavlja obrnutu DNS provjeru. Obicni DNS radi na sljedeci princip:
 Naziv domene->IP adresa
@@ -85,29 +62,57 @@ dig unmo.ba NS -> dobit cu ip adresu npr. 195.130.50.11
 Ovdje je obrnut postupak: IP adresa -> Naziv domene
 Postiže se komandom dig -x IP adresa domene
 
- 
- 
 
+
+
+_______________________________________________________ZADATAK 4____________________________________________________________________________________________________________ 
 Zadatak 4 skeniranje servera
-Da bi se testirala ranjivost sistema, obe masine Kali i ServerIspit moraju biti na istom switchu. Buduci da je ServerIspit na privatnom, i Kali ćemo morati prebaciti na private switch. Prije toga preuzet cemo skripte koje su date u petom zadatku: Koristimo komandu git clone https://github.com/r00thunter/Log4Shell nakon što preuzmemo sve skripte, Kali masinu prebacivamo na privatni switch. Prije toga, totalno ugasimo kali, pa prebacimo na privatni switch. Iako smo prebacili kali masinu na privatni switch, kali i serverispit ne mogu se povezati, razlog toga jeste: kad jednom prebacimo kali masinu na privatni switch takva masina nema ip adresu. Provjeravamo komandom ip a stanje ip adresa kalija. Nakon sto smo se uvjerili da kali masina nema svoju ip adresu, potrebno je konfigurisati novu. Najprije je potrebno iskljuciti NetworkManager, ako ostane ukljucen on defaultno pravi neke ip adrese, ne dozvoljava useru da uradi sta zeli. NetworkManager iskljucimo preko komande sudo systemctl stop NetworkManager , nakon čega je potrebno provjeriti status NM-a da bismo se uvjerili da je uspjesno iskljucen: sudo systemctl status NetworkManager . Ako je NM uspjesno iskljucen treba pisati dead ili inactive. Da bismo konfigurisali ispravno ip adresu iduci korak je pobrisati sve adrese koje kali masina ima: sudo ip addr flush dev eth0 nakon toga ponovo vrsimo provjeru ip a. Ako su sve adrese uspjesno uklonjene vrijeme je za postavku nove ip adrese. Da bismo postavili novu ip adresu za Kali trebamo znati ip adresu masine koju napadamo – ip adresu ServerIspit-a. Adresu professor da u dokmentu ili je ostavi napisanu na table: 172.21.224.3/20 Nova ip adresa se postavlja u skladu sa ip adresom masine koju napadamo gdje se mora voditi racuna da bude isti subnet tj. U ovom slucaju subnet je /20, takodjer, prva tri broja moraaju biti ista u oba slucaja ip adrese, jedina razlika je u zadnjem broju. U tom slucaju se bira broj koji je za 1 manji/veci od zadnjeg broja ip adrese masine koju napadamo. Pa cemo postaviti novu ip adresu za kali masinu na sljedeci nacin: sudo ip addr add 172.21.224.2/20 dev eth0. Dakle, kao sto se da vidjeti ip adresa ServerIspit i Kalija se razlikuje samo u cetvrtom broju, dok prva 3 broja moraju biti ista kao i subnet da bi ove dvije masine bile u komunikaciji preko privatnog switcha. Nakon toga potrebno je komandom ping IPAdresaServerIspita provjeriti da li ove dvije masine mogu komunicirati. Sve ovo gore napisano je bilo potrebno uraditi prije samog skeniranja. Sad idemo na skeniranje: 
-4. Skeniranje servera: Sa Kali VM skenirati server koji je konfigurisan u prvom koraku i utvrditi: 1. Koji su servisi aktivni; 2. Koje su verzije servisa; 3. Identifikaciju operativnog sistema (Skenirati drugu VM za otvorene portove i verziju operativnog sistema)
+Da bi se testirala ranjivost sistema, obe masine Kali i ServerIspit moraju biti na istom switchu. Buduci da je ServerIspit na privatnom, i Kali ćemo morati prebaciti na private switch. 
+Prije toga preuzet cemo skripte koje su date u petom zadatku: Koristimo komandu git clone https://github.com/r00thunter/Log4Shell nakon što preuzmemo sve skripte, Kali masinu prebacivamo na privatni switch.
+Iako smo prebacili kali masinu na privatni switch, kali i serverispit ne mogu se povezati, razlog toga jeste: kad jednom prebacimo kali masinu na privatni switch takva masina nema ip adresu.
+Provjeravamo komandom ip a stanje ip adresa kalija. Nakon sto smo se uvjerili da kali masina nema svoju ip adresu, potrebno je konfigurisati novu. 
+Najprije je potrebno iskljuciti NetworkManager, ako ostane ukljucen on defaultno pravi neke ip adrese, ne dozvoljava useru da uradi sta zeli.
+NetworkManager iskljucimo preko komande sudo systemctl stop NetworkManager , nakon čega je potrebno provjeriti status NM-a da bismo se uvjerili da je uspjesno iskljucen: sudo systemctl status NetworkManager . 
+Ako je NM uspjesno iskljucen treba pisati dead ili inactive. Da bismo konfigurisali ispravno ip adresu iduci korak je pobrisati sve adrese koje kali masina ima: sudo ip addr flush dev eth0
+nakon toga ponovo vrsimo provjeru ip a. Ako su sve adrese uspjesno uklonjene vrijeme je za postavku nove ip adrese.
+Da bismo postavili novu ip adresu za Kali trebamo znati ip adresu masine koju napadamo – ip adresu ServerIspit-a. Adresu professor da u dokmentu ili je ostavi napisanu na table: 172.21.224.3/20
+Nova ip adresa se postavlja u skladu sa ip adresom masine koju napadamo gdje se mora voditi racuna da bude isti subnet tj. U ovom slucaju subnet je /20, takodjer, prva tri broja moraaju biti ista u oba slucaja
+ip adrese, jedina razlika je u zadnjem broju. U tom slucaju se bira broj koji je za 1 manji/veci od zadnjeg broja ip adrese masine koju napadamo.
+Pa cemo postaviti novu ip adresu za kali masinu na sljedeci nacin: sudo ip addr add 172.21.224.2/20 dev eth0. 
+Dakle, kao sto se da vidjeti ip adresa ServerIspit i Kalija se razlikuje samo u cetvrtom broju, dok prva 3 broja moraju biti ista kao i subnet da bi ove dvije masine bile u komunikaciji preko privatnog switcha.
+Nakon toga potrebno je komandom ping IPAdresaServerIspita provjeriti da li ove dvije masine mogu komunicirati. Sve ovo gore napisano je bilo potrebno uraditi prije samog skeniranja. Sad idemo na skeniranje: 
 Koristimo komandu: sudo nmap -sS -sV -O IPAdresaServerIspita nikad ne stavimo /subnet, jer tako skeniranje dugo traje, skenira cijeli subnet kojem pripada ip adresu. 
+
+
+
+
+_______________________________________________________ZADATAK 5____________________________________________________________________________________________________________ 
+
 Zadatak 5 testiranje ranjivosti servera
-Prije samog odredjivanja ranjivosti potrebno je izvrsiti skeniranje servera (zadatak 4), na taj način ćemo doci do verzije Apache-a i Ubuntua. Putem inteneta mozemo vidjeti koja verzija je ranjiva, ukucamo nazive ranjivosti npr. CVE-2021-190102 affected Apache i tu će nam izbaciti rezultate, pa cemo vidjeti da li je ta verzija ranjivosti primjenjiva nan as system. Naravno, ovo je korak koji uradimo ukoliko jos uvijek nismo preuzeli, klonirali git repo. U nasem slucaju, preuzeli smo sve git repo pa komandom cd NazivFajlaKojiSmoKlonirali ulazimo u fajl. Izlistavalo fajl komandom ls i onda tstiramo ranjivost sistema komandom python3 NazivSkripte.py  IPAdresaServerIspita. U slučaju izbaci error: unrecognized arguments: 192.168.10.5 to znaci da skripta ne prima samu ip adresu nego je treba poslati ovako python3 cve-2021-42013.py -u http://192.168.10.5
-Metaspliot
-Ovaj način provjere koristimo kad postoji gotov modul u Metasploitu. Kad koristiti Metasploit? Koristimo ga kada zadatak kaže nešto tipa: koristiti Metasploit Framework; koristiti exploit is_known_pipename; pronaći modul za CVE; koristiti show options. Git clone koristimo kad profesor/zadatak daje GitHub skriptu ili kad Metasploit nema odgovarajući modul. 
-Dok smo jos na defaultnom switch potrbno je uraditi sve sto zahtjeva internet konekciju. Komandom sudo apt update azuriram listu paketa, zatim sudo apt install -y metasploit-framework nmap git curl python3 python3-pip python3-venv , nakon tog se namjesta Metasploit baza komandama 1. sudo systemctl start postgresql ; 2.sudo msfdb init ; naravno ove korake je potrebno uraditi ako prvi put ikada koristimo Metasploit. Zatim na google pretrazimo nazive CVE koji nam je dat da vidimo o čemu se radi. Konkretno zanima nas Samba verzije. Nakon što Kali prebacimo na privatni switch komandom msfconsole provjeravamo da l Metasploit ima modul. Prije samog nastavka komandom nmap -sS -sV -O ipAdresaServerIspit  kako bismo vidjeli na kojim postovima koji su otvoreni postoje samba verzije.
- 
-Nakon što smo provjerili komandom search NazivSkeneraRanjivosti dolazimo do “tabele” prikazane na slici. 
- 
- treba pisati nesto kao exploit/linux/samba/is_known_pipename – odakle vidimo da je to red 0 u tabeli. Vrijednosti iz tabele predstavljaju Metasploit module. Modul je gotov dio Metasploita koji služi za provjeru ili iskorištavanje određene ranjivosti na određenom servisu. Nakon toga komandom use RedTabele ulazimo u vrijednost koja se nalazi u tebeli, u ovom slučaju use 0 -> uvest ce nas u msfexploit linux/samba/is_known_pipname tada ćemo iskoristiti komandu  show options kako bismo dobili podatke sa slike ispod 
+Prije samog odredjivanja ranjivosti potrebno je izvrsiti skeniranje servera (zadatak 4), na taj način ćemo doci do verzije Apache-a i Ubuntua.
+Putem inteneta mozemo vidjeti koja verzija je ranjiva, ukucamo nazive ranjivosti npr. CVE-2021-190102 affected Apache i tu će nam izbaciti rezultate, 
+pa cemo vidjeti da li je ta verzija ranjivosti primjenjiva na nas system. Naravno, ovo je korak koji uradimo ukoliko jos uvijek nismo preuzeli, klonirali git repo. 
+U nasem slucaju, preuzeli smo sve git repo pa komandom cd NazivFajlaKojiSmoKlonirali ulazimo u fajl. Izlistavamo fajl komandom ls
+onda testiramo ranjivost sistema komandom python3 NazivSkripte.py  IPAdresaServerIspita.
+U slučaju izbaci error: unrecognized arguments: 192.168.10.5 to znaci da skripta ne prima samu ip adresu nego je treba poslati ovako python3 cve-2021-42013.py -u http://192.168.10.5
+_______________________________________________________METASPLOIT____________________________________________________________________________________________________________ 
+Ovaj način provjere koristimo kad postoji gotov modul u Metasploitu. Kad koristiti Metasploit? Koristimo ga kada zadatak kaže nešto tipa: koristiti Metasploit Framework; koristiti exploit is_known_pipename;
+pronaći modul za CVE; koristiti show options. Git clone koristimo kad profesor/zadatak daje GitHub skriptu ili kad Metasploit nema odgovarajući modul. 
+Dok smo jos na defaultnom switch potrbno je uraditi sve sto zahtjeva internet konekciju. Komandom sudo apt update azuriram listu paketa,
+zatim sudo apt install -y metasploit-framework nmap git curl python3 python3-pip python3-venv , 
+nakon tog se namjesta Metasploit baza komandama 1. sudo systemctl start postgresql ; 2.sudo msfdb init ; 
+naravno ove korake je potrebno uraditi ako prvi put ikada koristimo Metasploit.
 
- 
-Kad nam je prikazana “tabela”, iz nje mozemo vidjeti koja polja su obavezna koja moramo popuniti da bismo ispitali ranjivost. Na osnovu slike vidimo da polje RHOSTS nema postavljenu vrijednost (Current Setting), pa je komandom set RHOSTS IPAdresaServerIspita postavljamo. Iz daljne analize vidimo da je RPORT takodjer obavezna vrijednost, ali da je on automatski postavljen na 445. U slucaju da nije automatski postavljen taad je potrebno iskoristiti port servisa ( ovom slucaju to su portovi 139 i 445) pored kojih pise verzija sambe ( za slucaj CVE-2017-7494 gleda se samba, a to sam otkrila pretrazivajuci internet, za druge slucajeve mogu se gledati i apache verzije) .  Nakon toga ponovo koristimo komandu show options kako bismo vidjeli da li je sve uspješno postavljeno:
- 
-Nakon što je sve ispravno popunjeno komandom check provjeravamo ranjivost sistema. 
- 
-
-
+Zatim na google pretrazimo nazive CVE koji nam je dat da vidimo o čemu se radi. Nakon što Kali prebacimo na privatni switch komandom msfconsole provjeravamo da l Metasploit ima modul. 
+Prije samog nastavka komandom nmap -sS -sV -O ipAdresaServerIspit  kako bismo vidjeli na kojim postovima koji su otvoreni postoje samba verzije(jer u ovom slucaju nas zanima samba). 
+Nakon što smo provjerili komandom search NazivSkeneraRanjivosti dolazimo do “tabele” prikazane na slici. Treba pisati nesto kao exploit/linux/samba/is_known_pipename – odakle vidimo da je to red 0 u tabeli.
+Vrijednosti iz tabele predstavljaju Metasploit module. Modul je gotov dio Metasploita koji služi za provjeru ili iskorištavanje određene ranjivosti na određenom servisu. 
+Nakon toga komandom use RedTabele ulazimo u vrijednost koja se nalazi u tebeli, u ovom slučaju use 0 -> uvest ce nas u msfexploit linux/samba/is_known_pipname tada ćemo iskoristiti komandu
+show options kako bismo dobili podatke RHOSTS i RPORT. Kad nam je prikazana “tabela”, iz nje mozemo vidjeti koja polja su obavezna koja moramo popuniti da bismo ispitali ranjivost.
+Na osnovu slike vidimo da polje RHOSTS nema postavljenu vrijednost (Current Setting), pa je komandom set RHOSTS IPAdresaServerIspita postavljamo.
+Iz daljne analize vidimo da je RPORT takodjer obavezna vrijednost, ali da je on automatski postavljen na 445.
+U slucaju da nije automatski postavljen taad je potrebno iskoristiti port servisa ( ovom slucaju to su portovi 139 i 445) 
+pored kojih pise verzija sambe ( za slucaj CVE-2017-7494 gleda se samba, a to sam otkrila pretrazivajuci internet, za druge slucajeve mogu se gledati i apache verzije).
+Nakon toga ponovo koristimo komandu show options kako bismo vidjeli da li je sve uspješno postavljeno: Nakon što je sve ispravno popunjeno komandom check provjeravamo ranjivost sistema. 
 Nakon toga komandom set RPORT 139 testiramo ranjivost i za drugi port , nakon čega komandom exit izlazimo.
 
