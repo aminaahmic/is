@@ -6,38 +6,6 @@ https://grok.com/
 https://chat.akash.network/
 https://notegpt.io/ai-chat
 https://chat.qwen.ai/
-_______________________________________________________ZADATAK 1____________________________________________________________________________________________________________ 
-
-Zadatak 1: Verifikacija integriteta
-Verificirati integritet dostavljene datoteke C:\Install\server15.vhdx korištenjem SHA-256 hash algoritma. Dobivenu hash vrijednost uporediti sa referentnom vrijednošću navedenom u postavci i zaključiti da li je datoteka izmijenjena.
-Verificirati integritet datoteke Metasploitable.vhdx korištenjem SHA-256 algoritma. Dobijenu vrijednost uporediti sa referentnom vrijednošću:
-E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9
-____________________________________SHA-256 verifikacija VHD/VHDX-a ili VERIFIKACIJA ISO image-a korištenjem SHA-256__________________________________________________________________
-Na windowsu otvorim powershell, i ukucam komandu: Get-FileHash "C:\Users\location" -Algorithm SHA256 . U "" unesem lokaciju hard diska ServerIspit mašine. Tad dobijem rezultat: 
-Algorithm       Hash                                                                   Path
----------       ----                                                                   ----
-SHA256          E8EFA77B73E5D52BFFDAEB62E63FD789467E47055916A53B42A7B63C3A2F5CB9       C:\Users\location...
-
-_____________________PowerShell sam provjeri poklapanje, potrebno je ukucati:________________________
-(Get-FileHash "C:\Users\location" -Algorithm SHA256).Hash -eq "E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9"
-__________________________________PREKO KALIJA__________________________________
-sha256sum ime_datoteke
-____________________________________MD5 verifikacija__________________________________________________________________
-Get-FileHash "C:\Install\server15.vhdx" -Algorithm MD5
-__________________________________PREKO KALIJA__________________________________
-md5sum ime_datoteke
-__________________________________________________EXE/MSI/skripta → digitalni potpis → integritet + ko je potpisao + validnost potpisa____________________________________
-Izvršiti provjeru digitalnog potpisa datoteke C:\Users\location Utvrditi da li je datoteka digitalno potpisana, provjeriti status potpisa i, ukoliko potpis postoji, navesti potpisnika.
-Preko powershella Get-AuthenticodeSignature "C:\Users\ahmic\OneDrive\Desktop\Metasploitable.vhdx"
-Preko kalija:preko Kalija ovo ne bi išlo isto kao u PowerShellu, i tu je bitna jedna stvar: Kali ne vidi Windows putanju C:\Users\location. 
-Ta datoteka prvo mora biti dostupna unutar Kalija, npr. kopirana u Kali ili montirana preko dijeljenog foldera.
-Ali još važnije: Metasploitable.vhdx nije tip datoteke za koji se tipično provjerava Authenticode digitalni potpis. Authenticode se uglavnom koristi za Windows .exe, .dll, .msi i slične fajlove.
-Za VHD/VHDX je mnogo realniji ispitni zadatak provjera integriteta pomoću SHA-256. Ako bi VHDX prebacio u Kali, npr. u: /home/kali/Metasploitable.vhdx onda bi za integritet uradila:
-sha256sum /home/kali/Metasploitable.vhdx i dobiveni hash uporedila s referentnim. Ako bi profesor zaista dao digitalno potpisanu datoteku, recimo program.exe, 
-onda na Kaliju možeš koristiti alat kao osslsigncode. Instalacija: sudo apt install osslsigncode , a provjera: osslsigncode verify -in program.exe , Tu bi rezultat mogao pokazati da je potpis validan i
-podatke o certifikatu/potpisniku. Zato bih ovo za ispit učila ovako: Ako dobiješ VHDX/ISO: sha256sum datoteka → provjera integriteta. Ako dobiješ Windows EXE/MSI i traži digitalni potpis: 
-osslsigncode verify -in program.exe → status potpisa i certifikat/potpisnik. Dakle, formulacija „provjeriti digitalni potpis Metasploitable.vhdx preko Kalija“ nije baš dobar realan zadatak. 
-Za tvoj trenutni VHDX mnogo smislenije je ono što smo već radili sa SHA-256.
 
 _______________________________________________________ZADATAK 2____________________________________________________________________________________________________________ 
 
@@ -52,8 +20,7 @@ ________|__________|____________________________________________________________
 execute	|     1    | x može ući u direktorij
 
 Nakon što je direktorij kreiran naredbom mkdir NazivDirektorija, radi se izlistavanje svih direktorija na kaliju preko komande ls -al kako bi se vidjele privilegije svakog direktorija posebno: 
-Nakon što je otkriveno ko ima i kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija,
-dakle samo vlasnik direktorija ima sve privilegije, dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju.
+Nakon što je otkriveno ko ima i kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija, dakle samo vlasnik direktorija ima sve privilegije, dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju.
 Da bismo pokazali da smo uspjesno promijenili privilegije, ponovo listamo sve direktorije koje imamo na nasoj kali masini komandom ls -al 
 
 _______________________________________________________TEKSTUALNI FAJL .TXT KREIRANJE____________________________________________________________________________________________________________
@@ -63,7 +30,7 @@ postaviti privilegije, te nakon toga ponoviti naredbu ls -al. Za tekstualne dato
 Ukoliko profesor doda u zadatku da se nesto upise u tu skriptu/ datoteku, iskoristit cemo opciju: ./NazivDatoteke, zatim komandom vi NazivDatoteke otvaramo skriptu, upisat cemo
 echo „Tekst koji treba ici u skriptu“ nakon sto smo upisali idemo do dna i tu ukucamo :wq i kliknemo enter. Pored tog postoji i ova opcija echo „Tekst koji treba ici u skriptu“ > NazivSkripte.txt
 Da bismo provjerili sta pise u skripti koristimo naredbu cat NazivSkripte.txt . Ako bismo zeljeli dodati jos teksta to bismo uradili komandom echo „Dodajem tekst koji treba ici  u skriptu“ >> NazivSkripte.txt
-
+Npr.  Treba ukloniti write grupi i ostalima to uradimo preko komande: chmod go-w datoteka.txt ; ili treba dodati write grupi i ostalima chmod go+w datoteka.txt
 
 
 
@@ -81,9 +48,10 @@ Na prethodnu komadnu dig unmo.ba MX dodajem samo ping edge2019.unmo.ba  i dobije
 Koristeci komandu dig unmo.ba NS dobit cu DNS nazive servera domene unmo.ba, u ovom slučaju su takva 3 DNS servera. 
 5. IP adresa DNS servera
 Samo pingamo nazive DNS server i dobijemo 
-ping web2022.unmo.ba  -> 195.130.50.11
-ping pdc2019.unmo.ba  -> 195.130.50.7
-ping dns2022.unmo.ba  -> 195.130.50.10
+10 ping web2022.unmo.ba  -> 195.130.50.11
+20 ping pdc2019.unmo.ba  -> 195.130.50.7
+50 ping dns2022.unmo.ba  -> 195.130.50.10
+Manji broj - veći prioritet: Npr. 10 = najveći prioritet, 20 = drugi, 50 = treći
 6. Alias domene
 Koristeci komandu dig www.unmo.ba CNAME dobijamo alias domene, u ovom slučaju je jedna takva -> web2022.unmo.ba 
 7. TXT zapisi 
@@ -151,5 +119,142 @@ Iz daljne analize vidimo da je RPORT takodjer obavezna vrijednost, ali da je on 
 U slucaju da nije automatski postavljen taad je potrebno iskoristiti port servisa ( ovom slucaju to su portovi 139 i 445) 
 pored kojih pise verzija sambe ( za slucaj CVE-2017-7494 gleda se samba, a to sam otkrila pretrazivajuci internet, za druge slucajeve mogu se gledati i apache verzije).
 Nakon toga ponovo koristimo komandu show options kako bismo vidjeli da li je sve uspješno postavljeno: Nakon što je sve ispravno popunjeno komandom check provjeravamo ranjivost sistema. 
-Nakon toga komandom set RPORT 139 testiramo ranjivost i za drugi port , nakon čega komandom exit izlazimo.
+Nakon toga komandom set RPORT 139 testiramo ranjivost i za drugi port , nakon čega komandom exit izlazimo. BITNO ZA NAPOMENUTI: Neki Metasploit moduli koriste check za provjeru ranjivosti,
+dok se kod auxiliary/scanner modula provjera često pokreće komandom: run
 
+
+
+_____________________________________________________________DODATNO_____________________________________________________________________________________________________________________
+_______________________________________________________ZADATAK 1____________________________________________________________________________________________________________ 
+
+Zadatak 1: Verifikacija integriteta
+Verificirati integritet dostavljene datoteke C:\Install\server15.vhdx korištenjem SHA-256 hash algoritma. Dobivenu hash vrijednost uporediti sa referentnom vrijednošću navedenom u postavci i zaključiti da li je datoteka izmijenjena.
+Verificirati integritet datoteke Metasploitable.vhdx korištenjem SHA-256 algoritma. Dobijenu vrijednost uporediti sa referentnom vrijednošću:
+E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9
+
+____________________________________SHA-256 verifikacija VHD/VHDX-a ili VERIFIKACIJA ISO image-a korištenjem SHA-256__________________________________________________________________
+Na windowsu otvoriti powershell, i ukucati komandu: Get-FileHash "C:\Users\location" -Algorithm SHA256 . U "" unijeti lokaciju hard diska ServerIspit mašine. Tad je rezultat: 
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          E8EFA77B73E5D52BFFDAEB62E63FD789467E47055916A53B42A7B63C3A2F5CB9       C:\Users\location...
+
+_____________________PowerShell sam provjeri poklapanje, potrebno je ukucati:________________________
+(Get-FileHash "C:\Users\location" -Algorithm SHA256).Hash -eq "E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9"
+__________________________________PREKO KALIJA__________________________________
+sha256sum ime_datoteke
+____________________________________MD5 verifikacija__________________________________________________________________
+Get-FileHash "C:\Install\server15.vhdx" -Algorithm MD5
+__________________________________PREKO KALIJA__________________________________
+md5sum ime_datoteke
+__________________________________________________EXE/MSI/skripta → digitalni potpis → integritet + ko je potpisao + validnost potpisa____________________________________
+Izvršiti provjeru digitalnog potpisa datoteke C:\Users\location Utvrditi da li je datoteka digitalno potpisana, provjeriti status potpisa i, ukoliko potpis postoji, navesti potpisnika.
+Preko powershella Get-AuthenticodeSignature "C:\Users\ahmic\OneDrive\Desktop\Metasploitable.vhdx"
+Preko kalija:preko Kalija ovo ne bi išlo isto kao u PowerShellu, i tu je bitna jedna stvar: Kali ne vidi Windows putanju C:\Users\location. 
+Ta datoteka prvo mora biti dostupna unutar Kalija, npr. kopirana u Kali ili montirana preko dijeljenog foldera.
+Ali još važnije: Metasploitable.vhdx nije tip datoteke za koji se tipično provjerava Authenticode digitalni potpis. Authenticode se uglavnom koristi za Windows .exe, .dll, .msi i slične fajlove.
+Za VHD/VHDX je mnogo realniji ispitni zadatak provjera integriteta pomoću SHA-256. Ako bi VHDX prebacio u Kali, npr. u: /home/kali/Metasploitable.vhdx onda bi za integritet uradila:
+sha256sum /home/kali/Metasploitable.vhdx i dobiveni hash uporedila s referentnim. Ako bi profesor zaista dao digitalno potpisanu datoteku, recimo program.exe, 
+onda na Kaliju možeš koristiti alat kao osslsigncode. Instalacija: sudo apt install osslsigncode , a provjera: osslsigncode verify -in program.exe , Tu bi rezultat mogao pokazati da je potpis validan i
+podatke o certifikatu/potpisniku. Zato bih ovo za ispit učila ovako: Ako dobiješ VHDX/ISO: sha256sum datoteka → provjera integriteta. Ako dobiješ Windows EXE/MSI i traži digitalni potpis: 
+osslsigncode verify -in program.exe → status potpisa i certifikat/potpisnik. Dakle, formulacija „provjeriti digitalni potpis Metasploitable.vhdx preko Kalija“ nije baš dobar realan zadatak. 
+Za tvoj trenutni VHDX mnogo smislenije je ono što smo već radili sa SHA-256.
+_______________________________________________________ZADATAK 2____________________________________________________________________________________________________________ 
+
+
+Mogući zadatak	         |   Komanda	                        |Očekivani rezultat
+________________________|___________________________________|____________________________
+Provjeriti hostname	    |hostname	                          |Ime računara
+________________________|___________________________________|_____________________________
+Prikazati procese	      |ps aux	                            |Lista procesa
+________________________|___________________________________|____________________________
+Pronaći određeni proces	|ps aux | grep naziv	               |Pronađen proces
+________________________|___________________________________|____________________________
+Ugasiti proces	         |kill PID	                          |Proces ugašen
+________________________|___________________________________|_____________________________
+Provjeriti Apache	      |sudo systemctl status apache2	     |active/inactive
+________________________|___________________________________|_____________________________
+Pokrenuti Apache	       |sudo systemctl start apache2	      |Apache active
+________________________|___________________________________|_____________________________
+Zaustaviti Apache	      |sudo systemctl stop apache2	       |Apache inactive
+________________________|___________________________________|_____________________________
+Provjeriti SSH	         |sudo systemctl status ssh	         |Status SSH-a
+________________________|___________________________________|____________________________
+Vidjeti SSH port	       |netstat -antp | grep ssh	          |Trebao bi se vidjeti port 22
+________________________|___________________________________|_____________________________
+Promijeniti lozinku	    |passwd	                            |Postavljena nova lozinka
+
+
+
+_______________________________________________________ZADATAK 4____________________________________________________________________________________________________________ 
+
+
+Mogući zadatak	         |   Komanda	                        |Očekivani rezultat
+________________________|___________________________________|____________________________
+Obični scan             |nmap IP                            |Najčešći TCP portovi
+________________________|___________________________________|_____________________________
+Scan samo određenog port|nmap p -p 80 IP                    |Stanje porta 80
+________________________|___________________________________|____________________________
+Scan više portova 	    	|nmap -p 22,80,443,445 IP           |Samo navedeni portovi
+________________________|___________________________________|____________________________
+Provjeriti Web servise  |nmap -p 80,443 -sV IP              |HTTP/HTTPS servis + verzija
+________________________|___________________________________|_____________________________
+Provjeriti SMB          |nmap -p 445 -sV IP                 |SMB servis/verzija
+________________________|___________________________________|_____________________________
+Skenirati sve TCP portov|nmap -p- IP                        |Portovi 1–65535
+________________________|___________________________________|_____________________________
+Pronaći aktivne hostove |nmap -sn 192.168.10.0/24           |Lista aktivnih hostova
+________________________|___________________________________|_____________________________
+Pokrenuti NSE scanner   |nmap --script NAZIV_SKRIPTE IP     |Rezultat određene NSE provjere
+________________________|___________________________________|____________________________
+IP je ip adresa mašine koju skeniramo - ip adresa ServerIspit-a; 192.168.10.0/24 - predstavlja čitavu mrežu/subnet
+
+
+
+__________________________________________________________________________ZADATAK 5________________________________________________________________________________
+CVE-2014-0160 – Heartbleed
+
+Ranjivost se odnosi na određene ranjive verzije OpenSSL-a.
+Prvo Nmap skeniranjem provjeriti postoji li HTTPS/SSL servis.
+
+nmap -sV -p 443 IPAdresaServera
+
+Ako zadatak zahtijeva Metasploit:
+msfconsole
+search heartbleed
+use odgovarajuci_auxiliary_scanner
+show options
+set RHOSTS IPAdresaServera
+show options
+run
+
+Očekivani rezultat:
+scanner pokazuje da li je server vulnerable ili not vulnerable.
+
+_______________________________________________________________________________________________________________________________________________________________________________
+CVE-2017-5638 – Apache Struts
+
+Prvo preko Nmap skeniranja utvrditi koji web servis i verzija rade:
+
+sudo nmap -sS -sV -O IPAdresaServera
+
+Ako profesor da GitHub scanner, dok Kali ima internet:
+git clone URL_REPOZITORIJA
+cd NazivRepozitorija
+ls
+
+Zatim se scanner pokreće prema uputama skripte.
+_______________________________________________________________________________________________________________________________________________________________________________
+MS17-010 / EternalBlue
+
+Povezana je sa SMB servisom.
+Prvo provjeriti port 445:
+
+nmap -p 445 -sV IPAdresaServera
+
+Provjera Nmap NSE scannerom:
+
+nmap -p 445 --script smb-vuln-ms17-010 IPAdresaServera
+
+Ako je sistem ranjiv, rezultat može sadržavati:
+VULNERABLE
+_______________________________________________________________________________________________________________________________________________________________________________
