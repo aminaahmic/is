@@ -6,6 +6,38 @@ https://grok.com/
 https://chat.akash.network/
 https://notegpt.io/ai-chat
 https://chat.qwen.ai/
+_______________________________________________________ZADATAK 1____________________________________________________________________________________________________________ 
+
+Zadatak 1: Verifikacija integriteta
+Verificirati integritet dostavljene datoteke C:\Install\server15.vhdx korištenjem SHA-256 hash algoritma. Dobivenu hash vrijednost uporediti sa referentnom vrijednošću navedenom u postavci i zaključiti da li je datoteka izmijenjena.
+Verificirati integritet datoteke Metasploitable.vhdx korištenjem SHA-256 algoritma. Dobijenu vrijednost uporediti sa referentnom vrijednošću:
+E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9
+____________________________________SHA-256 verifikacija VHD/VHDX-a ili VERIFIKACIJA ISO image-a korištenjem SHA-256__________________________________________________________________
+Na windowsu otvorim powershell, i ukucam komandu: Get-FileHash "C:\Users\location" -Algorithm SHA256 . U "" unesem lokaciju hard diska ServerIspit mašine. Tad dobijem rezultat: 
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          E8EFA77B73E5D52BFFDAEB62E63FD789467E47055916A53B42A7B63C3A2F5CB9       C:\Users\location...
+
+_____________________PowerShell sam provjeri poklapanje, potrebno je ukucati:________________________
+(Get-FileHash "C:\Users\location" -Algorithm SHA256).Hash -eq "E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9"
+__________________________________PREKO KALIJA__________________________________
+sha256sum ime_datoteke
+____________________________________MD5 verifikacija__________________________________________________________________
+Get-FileHash "C:\Install\server15.vhdx" -Algorithm MD5
+__________________________________PREKO KALIJA__________________________________
+md5sum ime_datoteke
+__________________________________________________EXE/MSI/skripta → digitalni potpis → integritet + ko je potpisao + validnost potpisa____________________________________
+Izvršiti provjeru digitalnog potpisa datoteke C:\Users\location Utvrditi da li je datoteka digitalno potpisana, provjeriti status potpisa i, ukoliko potpis postoji, navesti potpisnika.
+Preko powershella Get-AuthenticodeSignature "C:\Users\ahmic\OneDrive\Desktop\Metasploitable.vhdx"
+Preko kalija:preko Kalija ovo ne bi išlo isto kao u PowerShellu, i tu je bitna jedna stvar: Kali ne vidi Windows putanju C:\Users\location. 
+Ta datoteka prvo mora biti dostupna unutar Kalija, npr. kopirana u Kali ili montirana preko dijeljenog foldera.
+Ali još važnije: Metasploitable.vhdx nije tip datoteke za koji se tipično provjerava Authenticode digitalni potpis. Authenticode se uglavnom koristi za Windows .exe, .dll, .msi i slične fajlove.
+Za VHD/VHDX je mnogo realniji ispitni zadatak provjera integriteta pomoću SHA-256. Ako bi VHDX prebacio u Kali, npr. u: /home/kali/Metasploitable.vhdx onda bi za integritet uradila:
+sha256sum /home/kali/Metasploitable.vhdx i dobiveni hash uporedila s referentnim. Ako bi profesor zaista dao digitalno potpisanu datoteku, recimo program.exe, 
+onda na Kaliju možeš koristiti alat kao osslsigncode. Instalacija: sudo apt install osslsigncode , a provjera: osslsigncode verify -in program.exe , Tu bi rezultat mogao pokazati da je potpis validan i
+podatke o certifikatu/potpisniku. Zato bih ovo za ispit učila ovako: Ako dobiješ VHDX/ISO: sha256sum datoteka → provjera integriteta. Ako dobiješ Windows EXE/MSI i traži digitalni potpis: 
+osslsigncode verify -in program.exe → status potpisa i certifikat/potpisnik. Dakle, formulacija „provjeriti digitalni potpis Metasploitable.vhdx preko Kalija“ nije baš dobar realan zadatak. 
+Za tvoj trenutni VHDX mnogo smislenije je ono što smo već radili sa SHA-256.
 
 _______________________________________________________ZADATAK 2____________________________________________________________________________________________________________ 
 
