@@ -165,7 +165,7 @@ Mogući zadatak	         |   Komanda	                        |Očekivani rezulta
 ________________________|___________________________________|____________________________
 Provjeriti hostname	    |hostname	                          |Ime računara
 ________________________|___________________________________|_____________________________
-Prikazati procese	      |ps aux	                            |Lista procesa
+Prikazati procese	    |ps aux	                            |Lista procesa
 ________________________|___________________________________|____________________________
 Pronaći određeni proces	|ps aux | grep naziv	               |Pronađen proces
 ________________________|___________________________________|____________________________
