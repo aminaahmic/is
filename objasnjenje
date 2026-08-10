@@ -122,7 +122,6 @@ Nakon toga ponovo koristimo komandu show options kako bismo vidjeli da li je sve
 Nakon toga komandom set RPORT 139 testiramo ranjivost i za drugi port , nakon čega komandom exit izlazimo. BITNO ZA NAPOMENUTI: Neki Metasploit moduli koriste check za provjeru ranjivosti,
 dok se kod auxiliary/scanner modula provjera često pokreće komandom: run
 _______________________________________________________ZADATAK 6____________________________________________________________________________________________________________ 
-
 Ranjivost je potrebno ukloniti instaliranjem odgovarajuće sigurnosne zakrpe i nadogradnjom ranjivog servisa/aplikacije na verziju koja više nije pogođena ranjivošću. 
 Ako servis nije potreban, treba ga onemogućiti. Pristup servisu treba dodatno ograničiti firewall pravilima i dozvoliti ga samo potrebnim sistemima.
 Nakon primjene zakrpe potrebno je ponovo pokrenuti servis ili sistem ako je to zahtijevano i ponoviti sigurnosno skeniranje kako bi se potvrdilo da ranjivost više nije prisutna.
@@ -169,7 +168,7 @@ Mogući zadatak	         |   Komanda	                        |Očekivani rezulta
 ________________________|___________________________________|____________________________
 Provjeriti hostname	    |hostname	                          |Ime računara
 ________________________|___________________________________|_____________________________
-Prikazati procese	    |ps aux	                            |Lista procesa
+Prikazati procese	      |ps aux	                            |Lista procesa
 ________________________|___________________________________|____________________________
 Pronaći određeni proces	|ps aux | grep naziv	               |Pronađen proces
 ________________________|___________________________________|____________________________
