@@ -133,7 +133,13 @@ set <ostali specifični parametri: RPORT, ACTION, payload, LHOST, LPORT...>
 check
 run  (ili "exploit" kod exploit modula)**
 
+**msfconsole**
 
+`search <ključna riječ ili CVE broj>`
+
+`use <puna putanja modula>`
+
+`show options`
 _______________________________________________________ZADATAK 6____________________________________________________________________________________________________________ 
 Ranjivost je potrebno ukloniti instaliranjem odgovarajuće sigurnosne zakrpe i nadogradnjom ranjivog servisa/aplikacije na verziju koja više nije pogođena ranjivošću. 
 Ako servis nije potreban, treba ga onemogućiti. Pristup servisu treba dodatno ograničiti firewall pravilima i dozvoliti ga samo potrebnim sistemima.
