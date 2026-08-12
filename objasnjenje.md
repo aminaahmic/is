@@ -1,137 +1,199 @@
-Link https://github.com/GeneralShepard1 
-AI ALATI
-https://www.perplexity.ai/
-https://chat.deepseek.com/
-https://grok.com/
-https://chat.akash.network/
-https://notegpt.io/ai-chat
+Link https://github.com/GeneralShepard1 AI ALATI
+https://www.perplexity.ai/ https://chat.deepseek.com/ https://grok.com/
+https://chat.akash.network/ https://notegpt.io/ai-chat
 https://chat.qwen.ai/
 
-_______________________________________________________ZADATAK 2____________________________________________________________________________________________________________ 
+## ZADATAK 2
 
-Linux privilegije se određuju za tri grupe korisnika: vlasnika, grupu i ostale korisnike. Svakoj od ovih grupa mogu se dodijeliti sljedeća prava:
+Linux privilegije se određuju za tri grupe korisnika: vlasnika, grupu i
+ostale korisnike. Svakoj od ovih grupa mogu se dodijeliti sljedeća
+prava:
 
-Naziv 	|Vrijednost|	Upotreba i skraćenica
-________|__________|__________________________________________________________________________________________________________________________________________________
-read	|     4    | r može vidjeti sadržaj direktorija	
-________|__________|__________________________________________________________________________________________________________________________________________________
-write	|     2    | w može kreirati/brisati fajlove unutr
-________|__________|__________________________________________________________________________________________________________________________________________________
-execute	|     1    | x može ući u direktorij
+  Naziv       Vrijednost Upotreba i skraćenica
+  --------- ------------ ---------------------------------------
+  read                 4 r može vidjeti sadržaj direktorija
+  write                2 w može kreirati/brisati fajlove unutr
+  execute              1 x može ući u direktorij
 
-Nakon što je direktorij kreiran naredbom mkdir NazivDirektorija, radi se izlistavanje svih direktorija na kaliju preko komande ls -al kako bi se vidjele privilegije svakog direktorija posebno: 
-Nakon što je otkriveno ko ima i kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija, dakle samo vlasnik direktorija ima sve privilegije, dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju.
-Da bismo pokazali da smo uspjesno promijenili privilegije, ponovo listamo sve direktorije koje imamo na nasoj kali masini komandom ls -al 
+Nakon što je direktorij kreiran naredbom mkdir NazivDirektorija, radi se
+izlistavanje svih direktorija na kaliju preko komande **ls -al** kako bi
+se vidjele privilegije svakog direktorija posebno: Nakon što je
+otkriveno ko ima i kakve privilegije, potrebno je postaviti privilegije
+onako kako je trazeno u zadatku: za to koristimo naredbu **chmod 700
+NazivDirektorija**, dakle samo vlasnik direktorija ima sve privilegije,
+dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju. Da
+bismo pokazali da smo uspjesno promijenili privilegije, ponovo listamo
+sve direktorije koje imamo na nasoj kali masini komandom **ls -al**
 
-_______________________________________________________TEKSTUALNI FAJL .TXT KREIRANJE____________________________________________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_TEKSTUALNI
+FAJL .TXT
+KREIRANJE\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
-Za kreiranje datoteka koristi se naredba touch NazivDatoteke. Nakon toga, potrebno je naredbom ls -al izlistati sve direktorije/datoteke s naše kali mašine. Zatim, ponovo naredbom chmod 644 NazivDatoteke 
-postaviti privilegije, te nakon toga ponoviti naredbu ls -al. Za tekstualne datoteke se obicno nikada ne daje naredba x jer se one ne  izvrsavaju kao program. 
-Ukoliko profesor doda u zadatku da se nesto upise u tu skriptu/ datoteku, iskoristit cemo opciju: ./NazivDatoteke, zatim komandom vi NazivDatoteke otvaramo skriptu, upisat cemo
-echo „Tekst koji treba ici u skriptu“ nakon sto smo upisali idemo do dna i tu ukucamo :wq i kliknemo enter. Pored tog postoji i ova opcija echo „Tekst koji treba ici u skriptu“ > NazivSkripte.txt
-Da bismo provjerili sta pise u skripti koristimo naredbu cat NazivSkripte.txt . Ako bismo zeljeli dodati jos teksta to bismo uradili komandom echo „Dodajem tekst koji treba ici  u skriptu“ >> NazivSkripte.txt
-Npr.  Treba ukloniti write grupi i ostalima to uradimo preko komande: chmod go-w datoteka.txt ; ili treba dodati write grupi i ostalima chmod go+w datoteka.txt
+Za kreiranje datoteka koristi se naredba touch NazivDatoteke. Nakon
+toga, potrebno je naredbom **ls -al** izlistati sve direktorije/datoteke
+s naše kali mašine. Zatim, ponovo naredbom **chmod 644 NazivDatoteke**
+postaviti privilegije, te nakon toga ponoviti naredbu **ls -al**. Za
+tekstualne datoteke se obicno nikada ne daje naredba x jer se one ne
+izvrsavaju kao program. Ukoliko profesor doda u zadatku da se nesto
+upise u tu skriptu/ datoteku, iskoristit cemo opciju: ./NazivDatoteke,
+zatim komandom **vi NazivDatoteke** otvaramo skriptu, upisat cemo echo
+„Tekst koji treba ici u skriptu" nakon sto smo upisali idemo do dna i tu
+ukucamo :wq i kliknemo enter. Pored tog postoji i ova opcija echo „Tekst
+koji treba ici u skriptu" \> NazivSkripte.txt Da bismo provjerili sta
+pise u skripti koristimo naredbu **cat NazivSkripte.txt** . Ako bismo
+zeljeli dodati jos teksta to bismo uradili komandom echo „Dodajem tekst
+koji treba ici u skriptu" \>\> NazivSkripte.txt Npr. Treba ukloniti
+write grupi i ostalima to uradimo preko komande: **chmod go-w
+datoteka.txt** ; ili treba dodati write grupi i ostalima **chmod go+w
+datoteka.txt**
 
+## ZADATAK 3
 
+Zadatak 3 U ovom zadatku najčešće se traži da se odredi nekoliko DNS
+informacija za neku domenu. Neka je domena www.unmo.ba treba odrediti
+sljedeće DNS informacije za www.unmo.ba domenu 1. IP adresu web servera:
+komandom **dig www.unmo.ba** dobit cu cname, dalje koristeci dobijeni
+cname kucam ping nazivcname-a. Adresa koju dobijem u zagradi je ip
+adresa web servera: 195.130.50.11 2. Mail server domene: Koristim
+komandu **dig unmo.ba MX** i dobijem odgovor: edge2019.unmo.ba i to je
+odgovor mail server domene. 3. Adresa mail servera Na prethodnu komadnu
+**dig unmo.ba MX** dodajem samo **ping edge2019.unmo.ba** i dobijem
+odgovor: 195.130.50.20 4. DNS/name serveri domene Koristeci komandu
+**dig unmo.ba NS** dobit cu DNS nazive servera domene unmo.ba, u ovom
+slučaju su takva 3 DNS servera. 5. IP adresa DNS servera Samo pingamo
+nazive DNS server i dobijemo 10 **ping web2022.unmo.ba** -\>
+195.130.50.11 20 **ping pdc2019.unmo.ba** -\> 195.130.50.7 50 **ping
+dns2022.unmo.ba** -\> 195.130.50.10 Manji broj - veći prioritet: Npr. 10
+= najveći prioritet, 20 = drugi, 50 = treći 6. Alias domene Koristeci
+komandu **dig www.unmo.ba CNAME** dobijamo alias domene, u ovom slučaju
+je jedna takva -\> web2022.unmo.ba 7. TXT zapisi Komandom dig unmo,ba
+TXT dobit ćemo tekstualne DNS zapise: TXT zapisi domene unmo.ba su
+tekstualni DNS zapisi koji se koriste za verifikaciju domene i zaštitu
+e-mail sistema. U ovom primjeru postoje Google verifikacija, Microsoft
+verifikacija i SPF zapis za određivanje servera koji smiju slati mailove
+za domenu unmo.ba. 8. SOA zapis SOA zapis prikazuje osnovne
+administrativne informacije o DNS zoni domene. Za domenu unmo.ba glavni
+DNS server je pdc2019.unmo.ba, a administrativni kontakt je
+admin@unmo.ba. Također sadrži serijski broj zone i vremenske vrijednosti
+za osvježavanje i keširanje DNS podataka. 9. Reverse DNS Pretstavlja
+obrnutu DNS provjeru. Obicni DNS radi na sljedeci princip: Naziv
+domene-\>IP adresa **dig unmo.ba NS** -\> dobit cu ip adresu npr.
+195.130.50.11 Ovdje je obrnut postupak: IP adresa -\> Naziv domene
+Postiže se komandom **dig -x IP adresa domene**
 
-_______________________________________________________ZADATAK 3____________________________________________________________________________________________________________ 
-Zadatak 3
-U ovom zadatku najčešće se traži da se odredi nekoliko DNS informacija za neku domenu. Neka je domena www.unmo.ba treba odrediti sljedeće
-DNS informacije za www.unmo.ba domenu
-1. IP adresu web servera:
- komandom dig www.unmo.ba dobit cu cname, dalje koristeci dobijeni cname kucam ping nazivcname-a. Adresa koju dobijem u zagradi je ip adresa web servera: 195.130.50.11
-2. Mail server domene: 
-Koristim komandu dig unmo.ba MX  i dobijem odgovor: edge2019.unmo.ba i to je odgovor mail server domene. 
-3. Adresa mail servera
-Na prethodnu komadnu dig unmo.ba MX dodajem samo ping edge2019.unmo.ba  i dobijem odgovor: 195.130.50.20 
-4. DNS/name serveri domene
-Koristeci komandu dig unmo.ba NS dobit cu DNS nazive servera domene unmo.ba, u ovom slučaju su takva 3 DNS servera. 
-5. IP adresa DNS servera
-Samo pingamo nazive DNS server i dobijemo 
-10 ping web2022.unmo.ba  -> 195.130.50.11
-20 ping pdc2019.unmo.ba  -> 195.130.50.7
-50 ping dns2022.unmo.ba  -> 195.130.50.10
-Manji broj - veći prioritet: Npr. 10 = najveći prioritet, 20 = drugi, 50 = treći
-6. Alias domene
-Koristeci komandu dig www.unmo.ba CNAME dobijamo alias domene, u ovom slučaju je jedna takva -> web2022.unmo.ba 
-7. TXT zapisi 
-Komandom dig unmo,ba TXT dobit ćemo tekstualne DNS zapise: TXT zapisi domene unmo.ba su tekstualni DNS zapisi koji se koriste za verifikaciju domene i zaštitu e-mail sistema. U ovom primjeru postoje Google verifikacija, Microsoft verifikacija i SPF zapis za određivanje servera koji smiju slati mailove za domenu unmo.ba. 
-8. SOA zapis
-SOA zapis prikazuje osnovne administrativne informacije o DNS zoni domene. Za domenu unmo.ba glavni DNS server je pdc2019.unmo.ba, a administrativni kontakt je admin@unmo.ba. Također sadrži serijski broj zone i vremenske vrijednosti za osvježavanje i keširanje DNS podataka.
-9. Reverse DNS
-Pretstavlja obrnutu DNS provjeru. Obicni DNS radi na sljedeci princip:
-Naziv domene->IP adresa
-dig unmo.ba NS -> dobit cu ip adresu npr. 195.130.50.11
-Ovdje je obrnut postupak: IP adresa -> Naziv domene
-Postiže se komandom dig -x IP adresa domene
+## ZADATAK 4
 
+Zadatak 4 skeniranje servera Da bi se testirala ranjivost sistema, obe
+masine Kali i ServerIspit moraju biti na istom switchu. Buduci da je
+ServerIspit na privatnom, i Kali ćemo morati prebaciti na private
+switch. Prije toga preuzet cemo skripte koje su date u petom zadatku:
+Koristimo komandu **git clone https://github.com/r00thunter/Log4Shell**
+nakon što preuzmemo sve skripte, Kali masinu prebacivamo na privatni
+switch. Iako smo prebacili kali masinu na privatni switch, kali i
+serverispit ne mogu se povezati, razlog toga jeste: kad jednom prebacimo
+kali masinu na privatni switch takva masina nema ip adresu. Provjeravamo
+komandom **ip a** stanje ip adresa kalija. Nakon sto smo se uvjerili da
+kali masina nema svoju ip adresu, potrebno je konfigurisati novu.
+Najprije je potrebno iskljuciti NetworkManager, ako ostane ukljucen on
+defaultno pravi neke ip adrese, ne dozvoljava useru da uradi sta zeli.
+NetworkManager iskljucimo preko komande **sudo systemctl stop
+NetworkManager** , nakon čega je potrebno provjeriti status NM-a da
+bismo se uvjerili da je uspjesno iskljucen: **sudo systemctl status
+NetworkManager** . Ako je NM uspjesno iskljucen treba pisati dead ili
+inactive. Da bismo konfigurisali ispravno ip adresu iduci korak je
+pobrisati sve adrese koje kali masina ima: **sudo ip addr flush dev
+eth0** nakon toga ponovo vrsimo provjeru **ip a**. Ako su sve adrese
+uspjesno uklonjene vrijeme je za postavku nove ip adrese. Da bismo
+postavili novu ip adresu za Kali trebamo znati ip adresu masine koju
+napadamo -- ip adresu ServerIspit-a. Adresu professor da u dokmentu ili
+je ostavi napisanu na table: 172.21.224.3/20 Nova ip adresa se postavlja
+u skladu sa ip adresom masine koju napadamo gdje se mora voditi racuna
+da bude isti subnet tj. U ovom slucaju subnet je /20, takodjer, prva tri
+broja moraaju biti ista u oba slucaja ip adrese, jedina razlika je u
+zadnjem broju. U tom slucaju se bira broj koji je za 1 manji/veci od
+zadnjeg broja ip adrese masine koju napadamo. Pa cemo postaviti novu ip
+adresu za kali masinu na sljedeci nacin: **sudo ip addr add
+172.21.224.2/20 dev eth0**. Dakle, kao sto se da vidjeti ip adresa
+ServerIspit i Kalija se razlikuje samo u cetvrtom broju, dok prva 3
+broja moraju biti ista kao i subnet da bi ove dvije masine bile u
+komunikaciji preko privatnog switcha. Nakon toga potrebno je komandom
+ping IPAdresaServerIspita provjeriti da li ove dvije masine mogu
+komunicirati. Sve ovo gore napisano je bilo potrebno uraditi prije samog
+skeniranja. Sad idemo na skeniranje: Koristimo komandu: **sudo nmap -sS
+-sV -O IPAdresaServerIspita** nikad ne stavimo /subnet, jer tako
+skeniranje dugo traje, skenira cijeli subnet kojem pripada ip adresu.
 
+## ZADATAK 5
 
+Zadatak 5 testiranje ranjivosti servera Prije samog odredjivanja
+ranjivosti potrebno je izvrsiti skeniranje servera (zadatak 4), na taj
+način ćemo doci do verzije Apache-a i Ubuntua. Putem inteneta mozemo
+vidjeti koja verzija je ranjiva, ukucamo nazive ranjivosti npr.
+CVE-2021-190102 affected Apache i tu će nam izbaciti rezultate, pa cemo
+vidjeti da li je ta verzija ranjivosti primjenjiva na nas system.
+Naravno, ovo je korak koji uradimo ukoliko jos uvijek nismo preuzeli,
+klonirali git repo. U nasem slucaju, preuzeli smo sve git repo pa
+komandom cd NazivFajlaKojiSmoKlonirali ulazimo u fajl. Izlistavamo fajl
+komandom ls onda testiramo ranjivost sistema komandom **python3
+NazivSkripte.py IPAdresaServerIspita**. U slučaju izbaci error:
+unrecognized arguments: 192.168.10.5 to znaci da skripta ne prima samu
+ip adresu nego je treba poslati ovako **python3 cve-2021-42013.py -u
+http://192.168.10.5**
 
-_______________________________________________________ZADATAK 4____________________________________________________________________________________________________________ 
-Zadatak 4 skeniranje servera
-Da bi se testirala ranjivost sistema, obe masine Kali i ServerIspit moraju biti na istom switchu. Buduci da je ServerIspit na privatnom, i Kali ćemo morati prebaciti na private switch. 
-Prije toga preuzet cemo skripte koje su date u petom zadatku: Koristimo komandu git clone https://github.com/r00thunter/Log4Shell nakon što preuzmemo sve skripte, Kali masinu prebacivamo na privatni switch.
-Iako smo prebacili kali masinu na privatni switch, kali i serverispit ne mogu se povezati, razlog toga jeste: kad jednom prebacimo kali masinu na privatni switch takva masina nema ip adresu.
-Provjeravamo komandom ip a stanje ip adresa kalija. Nakon sto smo se uvjerili da kali masina nema svoju ip adresu, potrebno je konfigurisati novu. 
-Najprije je potrebno iskljuciti NetworkManager, ako ostane ukljucen on defaultno pravi neke ip adrese, ne dozvoljava useru da uradi sta zeli.
-NetworkManager iskljucimo preko komande sudo systemctl stop NetworkManager , nakon čega je potrebno provjeriti status NM-a da bismo se uvjerili da je uspjesno iskljucen: sudo systemctl status NetworkManager . 
-Ako je NM uspjesno iskljucen treba pisati dead ili inactive. Da bismo konfigurisali ispravno ip adresu iduci korak je pobrisati sve adrese koje kali masina ima: sudo ip addr flush dev eth0
-nakon toga ponovo vrsimo provjeru ip a. Ako su sve adrese uspjesno uklonjene vrijeme je za postavku nove ip adrese.
-Da bismo postavili novu ip adresu za Kali trebamo znati ip adresu masine koju napadamo – ip adresu ServerIspit-a. Adresu professor da u dokmentu ili je ostavi napisanu na table: 172.21.224.3/20
-Nova ip adresa se postavlja u skladu sa ip adresom masine koju napadamo gdje se mora voditi racuna da bude isti subnet tj. U ovom slucaju subnet je /20, takodjer, prva tri broja moraaju biti ista u oba slucaja
-ip adrese, jedina razlika je u zadnjem broju. U tom slucaju se bira broj koji je za 1 manji/veci od zadnjeg broja ip adrese masine koju napadamo.
-Pa cemo postaviti novu ip adresu za kali masinu na sljedeci nacin: sudo ip addr add 172.21.224.2/20 dev eth0. 
-Dakle, kao sto se da vidjeti ip adresa ServerIspit i Kalija se razlikuje samo u cetvrtom broju, dok prva 3 broja moraju biti ista kao i subnet da bi ove dvije masine bile u komunikaciji preko privatnog switcha.
-Nakon toga potrebno je komandom ping IPAdresaServerIspita provjeriti da li ove dvije masine mogu komunicirati. Sve ovo gore napisano je bilo potrebno uraditi prije samog skeniranja. Sad idemo na skeniranje: 
-Koristimo komandu: sudo nmap -sS -sV -O IPAdresaServerIspita nikad ne stavimo /subnet, jer tako skeniranje dugo traje, skenira cijeli subnet kojem pripada ip adresu. 
+## METASPLOIT
 
+Ovaj način provjere koristimo kad postoji gotov modul u Metasploitu. Kad
+koristiti Metasploit? Koristimo ga kada zadatak kaže nešto tipa:
+koristiti Metasploit Framework; koristiti exploit is_known_pipename;
+pronaći modul za CVE; koristiti **show options**. Git clone koristimo
+kad profesor/zadatak daje GitHub skriptu ili kad Metasploit nema
+odgovarajući modul. Dok smo jos na defaultnom switch potrbno je uraditi
+sve sto zahtjeva internet konekciju. Komandom **sudo apt update**
+azuriram listu paketa, zatim sudo apt install -y metasploit-framework
+nmap git curl python3 python3-pip python3-venv , nakon tog se namjesta
+Metasploit baza komandama 1. **sudo systemctl start postgresql** ;
+2.**sudo msfdb init** ; naravno ove korake je potrebno uraditi ako prvi
+put ikada koristimo Metasploit.
 
+Zatim na google pretrazimo nazive CVE koji nam je dat da vidimo o čemu
+se radi. Nakon što Kali prebacimo na privatni switch komandom
+**msfconsole** provjeravamo da l Metasploit ima modul. Prije samog
+nastavka komandom **nmap -sS -sV -O ipAdresaServerIspit** kako bismo
+vidjeli na kojim postovima koji su otvoreni postoje samba verzije(jer u
+ovom slucaju nas zanima samba). Nakon što smo provjerili komandom search
+NazivSkeneraRanjivosti dolazimo do "tabele" prikazane na slici. Treba
+pisati nesto kao exploit/linux/samba/is_known_pipename -- odakle vidimo
+da je to red 0 u tabeli. Vrijednosti iz tabele predstavljaju Metasploit
+module. Modul je gotov dio Metasploita koji služi za provjeru ili
+iskorištavanje određene ranjivosti na određenom servisu. Nakon toga
+komandom use RedTabele ulazimo u vrijednost koja se nalazi u tebeli, u
+ovom slučaju use 0 -\> uvest ce nas u msfexploit
+linux/samba/is_known_pipname tada ćemo iskoristiti komandu **show
+options** kako bismo dobili podatke RHOSTS i RPORT. Kad nam je prikazana
+"tabela", iz nje mozemo vidjeti koja polja su obavezna koja moramo
+popuniti da bismo ispitali ranjivost. Na osnovu slike vidimo da polje
+RHOSTS nema postavljenu vrijednost (Current Setting), pa je komandom
+**set RHOSTS IPAdresaServerIspita** postavljamo. Iz daljne analize
+vidimo da je RPORT takodjer obavezna vrijednost, ali da je on automatski
+postavljen na 445. U slucaju da nije automatski postavljen taad je
+potrebno iskoristiti port servisa ( ovom slucaju to su portovi 139 i
+445) pored kojih pise verzija sambe ( za slucaj CVE-2017-7494 gleda se
+samba, a to sam otkrila pretrazivajuci internet, za druge slucajeve mogu
+se gledati i apache verzije). Nakon toga ponovo koristimo komandu **show
+options** kako bismo vidjeli da li je sve uspješno postavljeno: Nakon
+što je sve ispravno popunjeno komandom check provjeravamo ranjivost
+sistema. Nakon toga komandom **set RPORT 139** testiramo ranjivost i za
+drugi port , nakon čega komandom exit izlazimo. BITNO ZA NAPOMENUTI:
+Neki Metasploit moduli koriste check za provjeru ranjivosti, dok se kod
+auxiliary/scanner modula provjera često pokreće komandom: run ili
+exploit za exploit
 
+## KONAČNO
 
-_______________________________________________________ZADATAK 5____________________________________________________________________________________________________________ 
-
-Zadatak 5 testiranje ranjivosti servera
-Prije samog odredjivanja ranjivosti potrebno je izvrsiti skeniranje servera (zadatak 4), na taj način ćemo doci do verzije Apache-a i Ubuntua.
-Putem inteneta mozemo vidjeti koja verzija je ranjiva, ukucamo nazive ranjivosti npr. CVE-2021-190102 affected Apache i tu će nam izbaciti rezultate, 
-pa cemo vidjeti da li je ta verzija ranjivosti primjenjiva na nas system. Naravno, ovo je korak koji uradimo ukoliko jos uvijek nismo preuzeli, klonirali git repo. 
-U nasem slucaju, preuzeli smo sve git repo pa komandom cd NazivFajlaKojiSmoKlonirali ulazimo u fajl. Izlistavamo fajl komandom ls
-onda testiramo ranjivost sistema komandom python3 NazivSkripte.py  IPAdresaServerIspita.
-U slučaju izbaci error: unrecognized arguments: 192.168.10.5 to znaci da skripta ne prima samu ip adresu nego je treba poslati ovako python3 cve-2021-42013.py -u http://192.168.10.5
-
-_______________________________________________________METASPLOIT____________________________________________________________________________________________________________ 
-
-Ovaj način provjere koristimo kad postoji gotov modul u Metasploitu. Kad koristiti Metasploit? Koristimo ga kada zadatak kaže nešto tipa: koristiti Metasploit Framework; koristiti exploit is_known_pipename;
-pronaći modul za CVE; koristiti show options. Git clone koristimo kad profesor/zadatak daje GitHub skriptu ili kad Metasploit nema odgovarajući modul. 
-Dok smo jos na defaultnom switch potrbno je uraditi sve sto zahtjeva internet konekciju. Komandom sudo apt update azuriram listu paketa,
-zatim sudo apt install -y metasploit-framework nmap git curl python3 python3-pip python3-venv , 
-nakon tog se namjesta Metasploit baza komandama 1. sudo systemctl start postgresql ; 2.sudo msfdb init ; 
-naravno ove korake je potrebno uraditi ako prvi put ikada koristimo Metasploit.
-
-Zatim na google pretrazimo nazive CVE koji nam je dat da vidimo o čemu se radi. Nakon što Kali prebacimo na privatni switch komandom msfconsole provjeravamo da l Metasploit ima modul. 
-Prije samog nastavka komandom nmap -sS -sV -O ipAdresaServerIspit  kako bismo vidjeli na kojim postovima koji su otvoreni postoje samba verzije(jer u ovom slucaju nas zanima samba). 
-Nakon što smo provjerili komandom search NazivSkeneraRanjivosti dolazimo do “tabele” prikazane na slici. Treba pisati nesto kao exploit/linux/samba/is_known_pipename – odakle vidimo da je to red 0 u tabeli.
-Vrijednosti iz tabele predstavljaju Metasploit module. Modul je gotov dio Metasploita koji služi za provjeru ili iskorištavanje određene ranjivosti na određenom servisu. 
-Nakon toga komandom use RedTabele ulazimo u vrijednost koja se nalazi u tebeli, u ovom slučaju use 0 -> uvest ce nas u msfexploit linux/samba/is_known_pipname tada ćemo iskoristiti komandu
-show options kako bismo dobili podatke RHOSTS i RPORT. Kad nam je prikazana “tabela”, iz nje mozemo vidjeti koja polja su obavezna koja moramo popuniti da bismo ispitali ranjivost.
-Na osnovu slike vidimo da polje RHOSTS nema postavljenu vrijednost (Current Setting), pa je komandom set RHOSTS IPAdresaServerIspita postavljamo.
-Iz daljne analize vidimo da je RPORT takodjer obavezna vrijednost, ali da je on automatski postavljen na 445.
-U slucaju da nije automatski postavljen taad je potrebno iskoristiti port servisa ( ovom slucaju to su portovi 139 i 445) 
-pored kojih pise verzija sambe ( za slucaj CVE-2017-7494 gleda se samba, a to sam otkrila pretrazivajuci internet, za druge slucajeve mogu se gledati i apache verzije).
-Nakon toga ponovo koristimo komandu show options kako bismo vidjeli da li je sve uspješno postavljeno: Nakon što je sve ispravno popunjeno komandom check provjeravamo ranjivost sistema. 
-Nakon toga komandom set RPORT 139 testiramo ranjivost i za drugi port , nakon čega komandom exit izlazimo. BITNO ZA NAPOMENUTI: Neki Metasploit moduli koriste check za provjeru ranjivosti,
-dok se kod auxiliary/scanner modula provjera često pokreće komandom: run ili exploit za exploit 
-
-
-_________________________________________________________________KONAČNO___________________________________________________________________________________________________________________
-**msfconsole
-search <ključna riječ ili CVE broj>
-use <puna putanja modula>
-show options
-set RHOSTS <IP>
-set <ostali specifični parametri: RPORT, ACTION, payload, LHOST, LPORT...>
-check
-run  (ili "exploit" kod exploit modula)**
+**msfconsole search `<ključna riječ ili CVE broj>`{=html} use
+`<puna putanja modula>`{=html} **show options** set RHOSTS `<IP>`{=html}
+set \<ostali specifični parametri: RPORT, ACTION, payload, LHOST,
+LPORT...\> check run (ili "exploit" kod exploit modula)**
 
 **msfconsole**
 
@@ -139,144 +201,191 @@ run  (ili "exploit" kod exploit modula)**
 
 `use <puna putanja modula>`
 
-`show options`
-_______________________________________________________ZADATAK 6____________________________________________________________________________________________________________ 
-Ranjivost je potrebno ukloniti instaliranjem odgovarajuće sigurnosne zakrpe i nadogradnjom ranjivog servisa/aplikacije na verziju koja više nije pogođena ranjivošću. 
-Ako servis nije potreban, treba ga onemogućiti. Pristup servisu treba dodatno ograničiti firewall pravilima i dozvoliti ga samo potrebnim sistemima.
-Nakon primjene zakrpe potrebno je ponovo pokrenuti servis ili sistem ako je to zahtijevano i ponoviti sigurnosno skeniranje kako bi se potvrdilo da ranjivost više nije prisutna.
+`**show options**`
 
+## ZADATAK 6
 
-_____________________________________________________________DODATNO_____________________________________________________________________________________________________________________
-_______________________________________________________ZADATAK 1____________________________________________________________________________________________________________ 
+Ranjivost je potrebno ukloniti instaliranjem odgovarajuće sigurnosne
+zakrpe i nadogradnjom ranjivog servisa/aplikacije na verziju koja više
+nije pogođena ranjivošću. Ako servis nije potreban, treba ga
+onemogućiti. Pristup servisu treba dodatno ograničiti firewall pravilima
+i dozvoliti ga samo potrebnim sistemima. Nakon primjene zakrpe potrebno
+je ponovo pokrenuti servis ili sistem ako je to zahtijevano i ponoviti
+sigurnosno skeniranje kako bi se potvrdilo da ranjivost više nije
+prisutna.
 
-Zadatak 1: Verifikacija integriteta
-Verificirati integritet dostavljene datoteke C:\Install\server15.vhdx korištenjem SHA-256 hash algoritma. Dobivenu hash vrijednost uporediti sa referentnom vrijednošću navedenom u postavci i zaključiti da li je datoteka izmijenjena.
-Verificirati integritet datoteke Metasploitable.vhdx korištenjem SHA-256 algoritma. Dobijenu vrijednost uporediti sa referentnom vrijednošću:
+## DODATNO
+
+## ZADATAK 1
+
+Zadatak 1: Verifikacija integriteta Verificirati integritet dostavljene
+datoteke C:`\Install`{=tex}`\server`{=tex}15.vhdx korištenjem SHA-256
+hash algoritma. Dobivenu hash vrijednost uporediti sa referentnom
+vrijednošću navedenom u postavci i zaključiti da li je datoteka
+izmijenjena. Verificirati integritet datoteke Metasploitable.vhdx
+korištenjem SHA-256 algoritma. Dobijenu vrijednost uporediti sa
+referentnom vrijednošću:
 E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9
 
-____________________________________SHA-256 verifikacija VHD/VHDX-a ili VERIFIKACIJA ISO image-a korištenjem SHA-256__________________________________________________________________
-Na windowsu otvoriti powershell, i ukucati komandu: Get-FileHash "C:\Users\location" -Algorithm SHA256 . U "" unijeti lokaciju hard diska ServerIspit mašine. Tad je rezultat: 
-Algorithm       Hash                                                                   Path
----------       ----                                                                   ----
-SHA256          E8EFA77B73E5D52BFFDAEB62E63FD789467E47055916A53B42A7B63C3A2F5CB9       C:\Users\location...
+## SHA-256 verifikacija VHD/VHDX-a ili VERIFIKACIJA ISO image-a korištenjem SHA-256
 
-_____________________PowerShell sam provjeri poklapanje, potrebno je ukucati:________________________
-(Get-FileHash "C:\Users\location" -Algorithm SHA256).Hash -eq "E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9"
-__________________________________PREKO KALIJA__________________________________
-sha256sum ime_datoteke
-____________________________________MD5 verifikacija__________________________________________________________________
-Get-FileHash "C:\Install\server15.vhdx" -Algorithm MD5
-__________________________________PREKO KALIJA__________________________________
-md5sum ime_datoteke
-__________________________________________________EXE/MSI/skripta → digitalni potpis → integritet + ko je potpisao + validnost potpisa____________________________________
-Izvršiti provjeru digitalnog potpisa datoteke C:\Users\location Utvrditi da li je datoteka digitalno potpisana, provjeriti status potpisa i, ukoliko potpis postoji, navesti potpisnika.
-Preko powershella Get-AuthenticodeSignature "C:\Users\ahmic\OneDrive\Desktop\Metasploitable.vhdx"
-Preko kalija:preko Kalija ovo ne bi išlo isto kao u PowerShellu, i tu je bitna jedna stvar: Kali ne vidi Windows putanju C:\Users\location. 
-Ta datoteka prvo mora biti dostupna unutar Kalija, npr. kopirana u Kali ili montirana preko dijeljenog foldera.
-Ali još važnije: Metasploitable.vhdx nije tip datoteke za koji se tipično provjerava Authenticode digitalni potpis. Authenticode se uglavnom koristi za Windows .exe, .dll, .msi i slične fajlove.
-Za VHD/VHDX je mnogo realniji ispitni zadatak provjera integriteta pomoću SHA-256. Ako bi VHDX prebacio u Kali, npr. u: /home/kali/Metasploitable.vhdx onda bi za integritet uradila:
-sha256sum /home/kali/Metasploitable.vhdx i dobiveni hash uporedila s referentnim. Ako bi profesor zaista dao digitalno potpisanu datoteku, recimo program.exe, 
-onda na Kaliju možeš koristiti alat kao osslsigncode. Instalacija: sudo apt install osslsigncode , a provjera: osslsigncode verify -in program.exe , Tu bi rezultat mogao pokazati da je potpis validan i
-podatke o certifikatu/potpisniku. Zato bih ovo za ispit učila ovako: Ako dobiješ VHDX/ISO: sha256sum datoteka → provjera integriteta. Ako dobiješ Windows EXE/MSI i traži digitalni potpis: 
-osslsigncode verify -in program.exe → status potpisa i certifikat/potpisnik. Dakle, formulacija „provjeriti digitalni potpis Metasploitable.vhdx preko Kalija“ nije baš dobar realan zadatak. 
-Za tvoj trenutni VHDX mnogo smislenije je ono što smo već radili sa SHA-256.
-_______________________________________________________ZADATAK 2____________________________________________________________________________________________________________ 
+Na windowsu otvoriti powershell, i ukucati komandu: **Get-FileHash
+"C:`\Users`{=tex}`\location`{=tex}" -Algorithm SHA256** . U "" unijeti
+lokaciju hard diska ServerIspit mašine. Tad je rezultat: Algorithm Hash
+Path --------- ---- ---- SHA256
+E8EFA77B73E5D52BFFDAEB62E63FD789467E47055916A53B42A7B63C3A2F5CB9
+C:`\Users`{=tex}`\location`{=tex}...
 
+## PowerShell sam provjeri poklapanje, potrebno je ukucati:
 
-Mogući zadatak	         |   Komanda	                        |Očekivani rezultat
-________________________|___________________________________|____________________________
-Provjeriti hostname	    |hostname	                          |Ime računara
-________________________|___________________________________|_____________________________
-Prikazati procese	      |ps aux	                            |Lista procesa
-________________________|___________________________________|____________________________
-Pronaći određeni proces	|ps aux | grep naziv	               |Pronađen proces
-________________________|___________________________________|____________________________
-Ugasiti proces	         |kill PID	                          |Proces ugašen
-________________________|___________________________________|_____________________________
-Provjeriti Apache	      |sudo systemctl status apache2	     |active/inactive
-________________________|___________________________________|_____________________________
-Pokrenuti Apache	       |sudo systemctl start apache2	      |Apache active
-________________________|___________________________________|_____________________________
-Zaustaviti Apache	      |sudo systemctl stop apache2	       |Apache inactive
-________________________|___________________________________|_____________________________
-Provjeriti SSH	         |sudo systemctl status ssh	         |Status SSH-a
-________________________|___________________________________|____________________________
-Vidjeti SSH port	       |netstat -antp | grep ssh	          |Trebao bi se vidjeti port 22
-________________________|___________________________________|_____________________________
-Promijeniti lozinku	    |passwd	                            |Postavljena nova lozinka
+(**Get-FileHash "C:`\Users`{=tex}`\location`{=tex}" -Algorithm
+SHA256**).Hash -eq
+"E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9"
 
+## PREKO KALIJA
 
+**sha256sum ime_datoteke**
 
-_______________________________________________________ZADATAK 4____________________________________________________________________________________________________________ 
+## MD5 verifikacija
 
+**Get-FileHash "C:`\Install`{=tex}`\server`{=tex}15.vhdx" -Algorithm
+MD5**
 
-Mogući zadatak	         |   Komanda	                        |Očekivani rezultat
-________________________|___________________________________|____________________________
-Obični scan             |nmap IP                            |Najčešći TCP portovi
-________________________|___________________________________|_____________________________
-Scan samo određenog port|nmap p -p 80 IP                    |Stanje porta 80
-________________________|___________________________________|____________________________
-Scan više portova 	    	|nmap -p 22,80,443,445 IP           |Samo navedeni portovi
-________________________|___________________________________|____________________________
-Provjeriti Web servise  |nmap -p 80,443 -sV IP              |HTTP/HTTPS servis + verzija
-________________________|___________________________________|_____________________________
-Provjeriti SMB          |nmap -p 445 -sV IP                 |SMB servis/verzija
-________________________|___________________________________|_____________________________
-Skenirati sve TCP portov|nmap -p- IP                        |Portovi 1–65535
-________________________|___________________________________|_____________________________
-Pronaći aktivne hostove |nmap -sn 192.168.10.0/24           |Lista aktivnih hostova
-________________________|___________________________________|_____________________________
-Pokrenuti NSE scanner   |nmap --script NAZIV_SKRIPTE IP     |Rezultat određene NSE provjere
-________________________|___________________________________|____________________________
-IP je ip adresa mašine koju skeniramo - ip adresa ServerIspit-a; 192.168.10.0/24 - predstavlja čitavu mrežu/subnet
+## PREKO KALIJA
 
+**md5sum ime_datoteke**
 
+## EXE/MSI/skripta → digitalni potpis → integritet + ko je potpisao + validnost potpisa
 
-__________________________________________________________________________ZADATAK 5________________________________________________________________________________
-CVE-2014-0160 – Heartbleed
+Izvršiti provjeru digitalnog potpisa datoteke
+C:`\Users`{=tex}`\location `{=tex}Utvrditi da li je datoteka digitalno
+potpisana, provjeriti status potpisa i, ukoliko potpis postoji, navesti
+potpisnika. Preko powershella **Get-AuthenticodeSignature
+"C:`\Users`{=tex}`\ahmic`{=tex}`\OneDrive`{=tex}`\Desktop`{=tex}`\Metasploitable`{=tex}.vhdx"**
+Preko kalija:preko Kalija ovo ne bi išlo isto kao u PowerShellu, i tu je
+bitna jedna stvar: Kali ne vidi Windows putanju
+C:`\Users`{=tex}`\location`{=tex}. Ta datoteka prvo mora biti dostupna
+unutar Kalija, npr. kopirana u Kali ili montirana preko dijeljenog
+foldera. Ali još važnije: Metasploitable.vhdx nije tip datoteke za koji
+se tipično provjerava Authenticode digitalni potpis. Authenticode se
+uglavnom koristi za Windows .exe, .dll, .msi i slične fajlove. Za
+VHD/VHDX je mnogo realniji ispitni zadatak provjera integriteta pomoću
+SHA-256. Ako bi VHDX prebacio u Kali, npr. u:
+/home/kali/Metasploitable.vhdx onda bi za integritet uradila:
+**sha256sum /home/kali/Metasploitable.vhdx** i dobiveni hash uporedila s
+referentnim. Ako bi profesor zaista dao digitalno potpisanu datoteku,
+recimo program.exe, onda na Kaliju možeš koristiti alat kao
+osslsigncode. Instalacija: **sudo apt install osslsigncode** , a
+provjera: **osslsigncode verify -in program.exe** , Tu bi rezultat mogao
+pokazati da je potpis validan i podatke o certifikatu/potpisniku. Zato
+bih ovo za ispit učila ovako: Ako dobiješ VHDX/ISO: sha256sum datoteka →
+provjera integriteta. Ako dobiješ Windows EXE/MSI i traži digitalni
+potpis: **osslsigncode verify -in program.exe** → status potpisa i
+certifikat/potpisnik. Dakle, formulacija „provjeriti digitalni potpis
+Metasploitable.vhdx preko Kalija" nije baš dobar realan zadatak. Za tvoj
+trenutni VHDX mnogo smislenije je ono što smo već radili sa SHA-256.
 
-Ranjivost se odnosi na određene ranjive verzije OpenSSL-a.
-Prvo Nmap skeniranjem provjeriti postoji li HTTPS/SSL servis.
+## ZADATAK 2
 
-nmap -sV -p 443 IPAdresaServera
+  -----------------------------------------------------------------------
+  Mogući zadatak          Komanda                 Očekivani rezultat
+  ----------------------- ----------------------- -----------------------
+  Provjeriti hostname     **hostname**            Ime računara
 
-Ako zadatak zahtijeva Metasploit:
-msfconsole
-search heartbleed
-use odgovarajuci_auxiliary_scanner
-show options
-set RHOSTS IPAdresaServera
-show options
-run
+  Prikazati procese       **ps aux**              Lista procesa
 
-Očekivani rezultat:
-scanner pokazuje da li je server vulnerable ili not vulnerable.
+  Pronaći određeni proces **ps aux \| grep        Pronađen proces
+                          naziv**                 
 
-_______________________________________________________________________________________________________________________________________________________________________________
-CVE-2017-5638 – Apache Struts
+  Ugasiti proces          **kill PID**            Proces ugašen
+
+  Provjeriti Apache       **sudo systemctl status active/inactive
+                          apache2**               
+
+  Pokrenuti Apache        **sudo systemctl start  Apache active
+                          apache2**               
+
+  Zaustaviti Apache       **sudo systemctl stop   Apache inactive
+                          apache2**               
+
+  Provjeriti SSH          **sudo systemctl status Status SSH-a
+                          ssh**                   
+
+  Vidjeti SSH port        **netstat -antp \| grep Trebao bi se vidjeti
+                          ssh**                   port 22
+
+  Promijeniti lozinku     **passwd**              Postavljena nova
+                                                  lozinka
+  -----------------------------------------------------------------------
+
+## ZADATAK 4
+
+  -----------------------------------------------------------------------
+  Mogući zadatak          Komanda                 Očekivani rezultat
+  ----------------------- ----------------------- -----------------------
+  Obični scan             **nmap IP**             Najčešći TCP portovi
+
+  Scan samo određenog     **nmap p -p 80 IP**     Stanje porta 80
+  porta                                           
+
+  Scan više portova       **nmap -p 22,80,443,445 Samo navedeni portovi
+                          IP**                    
+
+  Provjeriti Web servise  **nmap -p 80,443 -sV    HTTP/HTTPS servis +
+                          IP**                    verzija
+
+  Provjeriti SMB          **nmap -p 445 -sV IP**  SMB servis/verzija
+
+  Skenirati sve TCP       **nmap -p- IP**         Portovi 1--65535
+  portove                                         
+
+  Pronaći aktivne hostove **nmap -sn              Lista aktivnih hostova
+                          192.168.10.0/24**       
+
+  Pokrenuti NSE scanner   **nmap --script         Rezultat određene NSE
+                          NAZIV_SKRIPTE IP**      provjere
+  -----------------------------------------------------------------------
+
+IP je ip adresa mašine koju skeniramo - ip adresa ServerIspit-a;
+192.168.10.0/24 - predstavlja čitavu mrežu/subnet
+
+## ZADATAK 5
+
+CVE-2014-0160 -- Heartbleed
+
+Ranjivost se odnosi na određene ranjive verzije OpenSSL-a. Prvo Nmap
+skeniranjem provjeriti postoji li HTTPS/SSL servis.
+
+**nmap -sV -p 443 IPAdresaServera**
+
+Ako zadatak zahtijeva Metasploit: **msfconsole** search heartbleed use
+odgovarajuci_auxiliary_scanner **show options** set RHOSTS
+IPAdresaServera **show options** run
+
+Očekivani rezultat: scanner pokazuje da li je server vulnerable ili not
+vulnerable.
+
+------------------------------------------------------------------------
+
+CVE-2017-5638 -- Apache Struts
 
 Prvo preko Nmap skeniranja utvrditi koji web servis i verzija rade:
 
-sudo nmap -sS -sV -O IPAdresaServera
+**sudo nmap -sS -sV -O IPAdresaServera**
 
-Ako profesor da GitHub scanner, dok Kali ima internet:
-git clone URL_REPOZITORIJA
-cd NazivRepozitorija
-ls
+Ako profesor da GitHub scanner, dok Kali ima internet: **git clone
+URL_REPOZITORIJA** cd NazivRepozitorija ls
 
 Zatim se scanner pokreće prema uputama skripte.
-_______________________________________________________________________________________________________________________________________________________________________________
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 MS17-010 / EternalBlue
 
-Povezana je sa SMB servisom.
-Prvo provjeriti port 445:
+Povezana je sa SMB servisom. Prvo provjeriti port 445:
 
-nmap -p 445 -sV IPAdresaServera
+**nmap -p 445 -sV IPAdresaServera**
 
 Provjera Nmap NSE scannerom:
 
-nmap -p 445 --script smb-vuln-ms17-010 IPAdresaServera
+**nmap -p 445 --script smb-vuln-ms17-010 IPAdresaServera**
 
-Ako je sistem ranjiv, rezultat može sadržavati:
-VULNERABLE
-_______________________________________________________________________________________________________________________________________________________________________________
+Ako je sistem ranjiv, rezultat može sadržavati: VULNERABLE
