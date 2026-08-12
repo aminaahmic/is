@@ -7,23 +7,22 @@ https://chat.akash.network/
 https://notegpt.io/ai-chat
 https://chat.qwen.ai/
 
-_______________________________________________________ZADATAK 2____________________________________________________________________________________________________________ 
 
+_______________________________________________________________________________ZADATAK 2__________________________________________________________________________________________________________________________ 
 Linux privilegije se određuju za tri grupe korisnika: vlasnika, grupu i ostale korisnike. Svakoj od ovih grupa mogu se dodijeliti sljedeća prava:
 
-Naziv 	|Vrijednost|	Upotreba i skraćenica
+Naziv  	|Vrijednost|	Upotreba i skraćenica
 ________|__________|__________________________________________________________________________________________________________________________________________________
-read	|     4    | r može vidjeti sadržaj direktorija	
+read	   |     4    | r može vidjeti sadržaj direktorija	
 ________|__________|__________________________________________________________________________________________________________________________________________________
-write	|     2    | w može kreirati/brisati fajlove unutr
+write	  |     2    | w može kreirati/brisati fajlove unutr
 ________|__________|__________________________________________________________________________________________________________________________________________________
 execute	|     1    | x može ući u direktorij
 
 Nakon što je direktorij kreiran naredbom mkdir NazivDirektorija, radi se izlistavanje svih direktorija na kaliju preko komande ls -al kako bi se vidjele privilegije svakog direktorija posebno: 
-Nakon što je otkriveno ko ima i kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija, dakle samo vlasnik direktorija ima sve privilegije, dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju.
-Da bismo pokazali da smo uspjesno promijenili privilegije, ponovo listamo sve direktorije koje imamo na nasoj kali masini komandom ls -al 
-
-_______________________________________________________TEKSTUALNI FAJL .TXT KREIRANJE____________________________________________________________________________________________________________
+Nakon što je otkriveno ko ima i kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija (chmod u=rw,g=rw,o=r MojaDatoteka.txt neki primjer) dakle samo vlasnik direktorija ima sve privilegije, 
+dok ostale dvije grupe korisnika nemaju nikakav pristup direktoriju. Da bismo pokazali da smo uspjesno promijenili privilegije, ponovo listamo sve direktorije koje imamo na nasoj kali masini komandom ls -al 
+_______________________________________________________________________________TEKSTUALNI FAJL KREIRANJE__________________________________________________________________________________________________________________________
 
 Za kreiranje datoteka koristi se naredba touch NazivDatoteke. Nakon toga, potrebno je naredbom ls -al izlistati sve direktorije/datoteke s naše kali mašine. Zatim, ponovo naredbom chmod 644 NazivDatoteke 
 postaviti privilegije, te nakon toga ponoviti naredbu ls -al. Za tekstualne datoteke se obicno nikada ne daje naredba x jer se one ne  izvrsavaju kao program. 
@@ -32,9 +31,21 @@ echo „Tekst koji treba ici u skriptu“ nakon sto smo upisali idemo do dna i t
 Da bismo provjerili sta pise u skripti koristimo naredbu cat NazivSkripte.txt . Ako bismo zeljeli dodati jos teksta to bismo uradili komandom echo „Dodajem tekst koji treba ici  u skriptu“ >> NazivSkripte.txt
 Npr.  Treba ukloniti write grupi i ostalima to uradimo preko komande: chmod go-w datoteka.txt ; ili treba dodati write grupi i ostalima chmod go+w datoteka.txt
 
+Provjeriti trenutni direktorij  	                 | pwd	                                     | Npr. /home/student.
+__________________________________________________|__________________________________________|____________________________________________________________________________________________________________________
+Kreirati ili otvoriti datoteku u vi editoru       |	vi MojaDatoteka.txt                      | Otvara vi; ako datoteka ne postoji, biće kreirana.Ući u režim pisanja u vi	i	Možeš unositi tekst.
+__________________________________________________|__________________________________________|____________________________________________________________________________________________________________________
+Izaći iz režima pisanja	                          | Esc	                                     | Vraća command mode u vi editoru.
+__________________________________________________|__________________________________________|____________________________________________________________________________________________________________________
+Sačuvati i izaći iz vi	                           | :wq pa Enter	                            | Datoteka se snima i vraćaš se u terminal.
+__________________________________________________|__________________________________________|____________________________________________________________________________________________________________________
+Alternativno kreirati datoteku iz komandne linije |	echo "Neki tekst" > MojaDatoteka.txt	    | Nema ispisa; tekst se upisuje u datoteku.
+__________________________________________________|__________________________________________|____________________________________________________________________________________________________________________
+Izlistati sadržaj direktorija	                    | ls	                                      | Na listi treba biti MojaDatoteka.txt.
+__________________________________________________|__________________________________________|___________________________________________________________________________________________________________________
 
 
-_______________________________________________________ZADATAK 3____________________________________________________________________________________________________________ 
+_______________________________________________________________________________ZADATAK 3__________________________________________________________________________________________________________________________
 Zadatak 3
 U ovom zadatku najčešće se traži da se odredi nekoliko DNS informacija za neku domenu. Neka je domena www.unmo.ba treba odrediti sljedeće
 DNS informacije za www.unmo.ba domenu
@@ -66,9 +77,7 @@ Ovdje je obrnut postupak: IP adresa -> Naziv domene
 Postiže se komandom dig -x IP adresa domene
 
 
-
-
-_______________________________________________________ZADATAK 4____________________________________________________________________________________________________________ 
+_______________________________________________________________________________ZADATAK 4__________________________________________________________________________________________________________________________
 Zadatak 4 skeniranje servera
 Da bi se testirala ranjivost sistema, obe masine Kali i ServerIspit moraju biti na istom switchu. Buduci da je ServerIspit na privatnom, i Kali ćemo morati prebaciti na private switch. 
 Prije toga preuzet cemo skripte koje su date u petom zadatku: Koristimo komandu git clone https://github.com/r00thunter/Log4Shell nakon što preuzmemo sve skripte, Kali masinu prebacivamo na privatni switch.
@@ -88,9 +97,7 @@ Koristimo komandu: sudo nmap -sS -sV -O IPAdresaServerIspita nikad ne stavimo /s
 
 
 
-
-_______________________________________________________ZADATAK 5____________________________________________________________________________________________________________ 
-
+_______________________________________________________________________________ZADATAK 5__________________________________________________________________________________________________________________________
 Zadatak 5 testiranje ranjivosti servera
 Prije samog odredjivanja ranjivosti potrebno je izvrsiti skeniranje servera (zadatak 4), na taj način ćemo doci do verzije Apache-a i Ubuntua.
 Putem inteneta mozemo vidjeti koja verzija je ranjiva, ukucamo nazive ranjivosti npr. CVE-2021-190102 affected Apache i tu će nam izbaciti rezultate, 
@@ -98,9 +105,7 @@ pa cemo vidjeti da li je ta verzija ranjivosti primjenjiva na nas system. Naravn
 U nasem slucaju, preuzeli smo sve git repo pa komandom cd NazivFajlaKojiSmoKlonirali ulazimo u fajl. Izlistavamo fajl komandom ls
 onda testiramo ranjivost sistema komandom python3 NazivSkripte.py  IPAdresaServerIspita.
 U slučaju izbaci error: unrecognized arguments: 192.168.10.5 to znaci da skripta ne prima samu ip adresu nego je treba poslati ovako python3 cve-2021-42013.py -u http://192.168.10.5
-
-_______________________________________________________METASPLOIT____________________________________________________________________________________________________________ 
-
+_______________________________________________________________________________METASPLOIT__________________________________________________________________________________________________________________________
 Ovaj način provjere koristimo kad postoji gotov modul u Metasploitu. Kad koristiti Metasploit? Koristimo ga kada zadatak kaže nešto tipa: koristiti Metasploit Framework; koristiti exploit is_known_pipename;
 pronaći modul za CVE; koristiti show options. Git clone koristimo kad profesor/zadatak daje GitHub skriptu ili kad Metasploit nema odgovarajući modul. 
 Dok smo jos na defaultnom switch potrbno je uraditi sve sto zahtjeva internet konekciju. Komandom sudo apt update azuriram listu paketa,
@@ -121,54 +126,38 @@ pored kojih pise verzija sambe ( za slucaj CVE-2017-7494 gleda se samba, a to sa
 Nakon toga ponovo koristimo komandu show options kako bismo vidjeli da li je sve uspješno postavljeno: Nakon što je sve ispravno popunjeno komandom check provjeravamo ranjivost sistema. 
 Nakon toga komandom set RPORT 139 testiramo ranjivost i za drugi port , nakon čega komandom exit izlazimo. BITNO ZA NAPOMENUTI: Neki Metasploit moduli koriste check za provjeru ranjivosti,
 dok se kod auxiliary/scanner modula provjera često pokreće komandom: run ili exploit za exploit 
-
-
-_________________________________________________________________KONAČNO___________________________________________________________________________________________________________________
-**msfconsole
+_______________________________________________________________________________METASPLOIT KOMANDE__________________________________________________________________________________________________________________________
+msfconsole
 search <ključna riječ ili CVE broj>
 use <puna putanja modula>
 show options
 set RHOSTS <IP>
 set <ostali specifični parametri: RPORT, ACTION, payload, LHOST, LPORT...>
 check
-run  (ili "exploit" kod exploit modula)**
+run  (ili "exploit" kod exploit modula)
 
-**msfconsole**
+*auxiliary/scanner/ssl/openssl_heartbleed -> set ACTION KEYS (ili SCAN/DUMP) -> https 443
+*SambaCry -> 	exploit/linux/samba/is_known_pipename -> 
 
-`search <ključna riječ ili CVE broj>`
-
-`use <puna putanja modula>`
-
-`show options`
-_______________________________________________________ZADATAK 6____________________________________________________________________________________________________________ 
+_______________________________________________________________________________ZADATAK 6__________________________________________________________________________________________________________________________
 Ranjivost je potrebno ukloniti instaliranjem odgovarajuće sigurnosne zakrpe i nadogradnjom ranjivog servisa/aplikacije na verziju koja više nije pogođena ranjivošću. 
 Ako servis nije potreban, treba ga onemogućiti. Pristup servisu treba dodatno ograničiti firewall pravilima i dozvoliti ga samo potrebnim sistemima.
 Nakon primjene zakrpe potrebno je ponovo pokrenuti servis ili sistem ako je to zahtijevano i ponoviti sigurnosno skeniranje kako bi se potvrdilo da ranjivost više nije prisutna.
-
-
-_____________________________________________________________DODATNO_____________________________________________________________________________________________________________________
-_______________________________________________________ZADATAK 1____________________________________________________________________________________________________________ 
-
+_______________________________________________________________________________DODATNO__________________________________________________________________________________________________________________________
+_______________________________________________________________________________ZADATAK 1__________________________________________________________________________________________________________________________
 Zadatak 1: Verifikacija integriteta
 Verificirati integritet dostavljene datoteke C:\Install\server15.vhdx korištenjem SHA-256 hash algoritma. Dobivenu hash vrijednost uporediti sa referentnom vrijednošću navedenom u postavci i zaključiti da li je datoteka izmijenjena.
 Verificirati integritet datoteke Metasploitable.vhdx korištenjem SHA-256 algoritma. Dobijenu vrijednost uporediti sa referentnom vrijednošću:
 E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9
-
-____________________________________SHA-256 verifikacija VHD/VHDX-a ili VERIFIKACIJA ISO image-a korištenjem SHA-256__________________________________________________________________
+____________________________________________SHA-256 verifikacija VHD/VHDX-a ili VERIFIKACIJA ISO image-a korištenjem SHA-256___________________________________________________________________________
 Na windowsu otvoriti powershell, i ukucati komandu: Get-FileHash "C:\Users\location" -Algorithm SHA256 . U "" unijeti lokaciju hard diska ServerIspit mašine. Tad je rezultat: 
 Algorithm       Hash                                                                   Path
 ---------       ----                                                                   ----
 SHA256          E8EFA77B73E5D52BFFDAEB62E63FD789467E47055916A53B42A7B63C3A2F5CB9       C:\Users\location...
-
-_____________________PowerShell sam provjeri poklapanje, potrebno je ukucati:________________________
-(Get-FileHash "C:\Users\location" -Algorithm SHA256).Hash -eq "E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9"
-__________________________________PREKO KALIJA__________________________________
-sha256sum ime_datoteke
-____________________________________MD5 verifikacija__________________________________________________________________
-Get-FileHash "C:\Install\server15.vhdx" -Algorithm MD5
-__________________________________PREKO KALIJA__________________________________
-md5sum ime_datoteke
-__________________________________________________EXE/MSI/skripta → digitalni potpis → integritet + ko je potpisao + validnost potpisa____________________________________
+PowerShell sam provjeri poklapanje, potrebno je ukucati:(Get-FileHash "C:\Users\location" -Algorithm SHA256).Hash -eq "E8EFA77B73E5D52BFFDAEB62E63ED789467E47055916A53B4A27B63C3A2E5CB9"
+Da bi se to odradilo preko neke masine, fajl mora postojat na masini i nakon tog kostimo komandu: sha256sum ime_datoteke
+Ako profesot zatrazi MD5 verifikaciju kuccamo u powershell: Get-FileHash "C:\Install\server15.vhdx" -Algorithm MD5, a preko masine: md5sum ime_datoteke
+__________________________________________________EXE/MSI/skripta → digitalni potpis → integritet + ko je potpisao + validnost potpisa________________________________________________________________
 Izvršiti provjeru digitalnog potpisa datoteke C:\Users\location Utvrditi da li je datoteka digitalno potpisana, provjeriti status potpisa i, ukoliko potpis postoji, navesti potpisnika.
 Preko powershella Get-AuthenticodeSignature "C:\Users\ahmic\OneDrive\Desktop\Metasploitable.vhdx"
 Preko kalija:preko Kalija ovo ne bi išlo isto kao u PowerShellu, i tu je bitna jedna stvar: Kali ne vidi Windows putanju C:\Users\location. 
@@ -180,7 +169,7 @@ onda na Kaliju možeš koristiti alat kao osslsigncode. Instalacija: sudo apt in
 podatke o certifikatu/potpisniku. Zato bih ovo za ispit učila ovako: Ako dobiješ VHDX/ISO: sha256sum datoteka → provjera integriteta. Ako dobiješ Windows EXE/MSI i traži digitalni potpis: 
 osslsigncode verify -in program.exe → status potpisa i certifikat/potpisnik. Dakle, formulacija „provjeriti digitalni potpis Metasploitable.vhdx preko Kalija“ nije baš dobar realan zadatak. 
 Za tvoj trenutni VHDX mnogo smislenije je ono što smo već radili sa SHA-256.
-_______________________________________________________ZADATAK 2____________________________________________________________________________________________________________ 
+_______________________________________________________________________________ZADATAK 2__________________________________________________________________________________________________________________________
 
 
 Mogući zadatak	         |   Komanda	                        |Očekivani rezultat
@@ -207,7 +196,7 @@ Promijeniti lozinku	    |passwd	                            |Postavljena nova lo
 
 
 
-_______________________________________________________ZADATAK 4____________________________________________________________________________________________________________ 
+_______________________________________________________________________________ZADATAK 4__________________________________________________________________________________________________________________________
 
 
 Mogući zadatak	         |   Komanda	                        |Očekivani rezultat
@@ -232,7 +221,7 @@ IP je ip adresa mašine koju skeniramo - ip adresa ServerIspit-a; 192.168.10.0/2
 
 
 
-__________________________________________________________________________ZADATAK 5________________________________________________________________________________
+_______________________________________________________________________________ZADATAK 5__________________________________________________________________________________________________________________________
 CVE-2014-0160 – Heartbleed
 
 Ranjivost se odnosi na određene ranjive verzije OpenSSL-a.
